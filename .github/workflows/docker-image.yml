@@ -39,4 +39,4 @@ jobs:
           context: spaCy/
           push: true
           tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
-          platforms: linux/amd64
+          platforms: linux/arm64
