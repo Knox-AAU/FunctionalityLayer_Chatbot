@@ -37,5 +37,4 @@ jobs:
         with:
           context: spaCy/
           push: true
-          platforms: linux/amd64
           tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
