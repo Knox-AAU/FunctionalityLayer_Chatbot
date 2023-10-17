@@ -27,6 +27,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Extract branch name
+          shell: bash
+          run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+          id: extract_branch
       -
         name: Build and push
         uses: docker/build-push-action@v5
@@ -34,4 +38,4 @@ jobs:
           context: spaCy/
           push: true
           platforms: linux/amd64
-          tags: eshes/knox-group-g:${{ github.ref_name }}
+          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
