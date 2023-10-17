@@ -31,6 +31,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: spaCy/
           push: true
           tags: eshes/knox-group-g:latest
