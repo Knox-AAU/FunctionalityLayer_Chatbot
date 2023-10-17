@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - 'main'
+  pull_request:
+    branches:
+      - 'main'
 
 jobs:
   docker:
@@ -30,4 +33,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: user/app:latest
+          tags: eshes/knox-group-g:latest
