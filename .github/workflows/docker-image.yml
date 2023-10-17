@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag eshes/knox-group-g:$(date +%s)
+      run: docker build . --file spaCy/Dockerfile --tag eshes/knox-group-g:$(date +%s)
