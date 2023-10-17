@@ -1,5 +1,5 @@
 import spacy
-nlp = spacy.load('da_core_news_lg')
+nlp = spacy.load('da_core_news_md')
 
 def extract_entities(input_string):
     doc = nlp(input_string)
