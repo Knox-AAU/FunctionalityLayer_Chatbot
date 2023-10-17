@@ -1,10 +1,7 @@
-name: Docker CI - PR
+name: Docker CI - Master
 
 on:
   push:
-    branches:
-      - 'main'
-  pull_request:
     branches:
       - 'main'
 
@@ -28,15 +25,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Extract branch name
-        shell: bash
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-        id: extract_branch
-      -
         name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: spaCy/
           push: true
-          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
+          tags: eshes/knox-group-g:master
           platforms: linux/arm64
