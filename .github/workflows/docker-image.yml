@@ -33,5 +33,5 @@ jobs:
         with:
           context: spaCy/
           push: true
-          platform: linux/amd64
+          platforms: linux/amd64
           tags: eshes/knox-group-g:${{ github.ref_name }}
