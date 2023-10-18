@@ -4,30 +4,10 @@ on:
   push:
     branches:
       - 'main'
-      - 'thomasbjeldbak-patch-1'
       
-
 jobs:
-  docker:
+  Docker:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
-    steps:
-      - 
-        name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
-        with:
-          python-version: ${{ matrix.python-version }}
-      - 
-        name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pylint
-      - 
-        name: Analysing the code with pylint
-        run: |
-          pylint $(git ls-files '*.py')
       -
         name: Checkout
         uses: actions/checkout@v3
@@ -51,3 +31,23 @@ jobs:
           push: true
           tags: eshes/knox-group-g:master
           platforms: linux/arm64
+  Pylint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+      - 
+        name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - 
+        name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+      - 
+        name: Analysing the code with pylint
+        run: |
+          pylint $(git ls-files '*.py')
