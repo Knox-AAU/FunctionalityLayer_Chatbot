@@ -40,4 +40,4 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: 'The project {{ steps.extract_branch.outputs.branch }} has been deployed.'
+          args: 'The project ${{ steps.extract_branch.outputs.branch }} has been deployed.'
