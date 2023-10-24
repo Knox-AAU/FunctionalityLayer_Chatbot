@@ -1,4 +1,4 @@
-from spaCy import runSpaCy
+from spaCy.spaCy import runSpaCy
 
 flag = True
 while flag:
