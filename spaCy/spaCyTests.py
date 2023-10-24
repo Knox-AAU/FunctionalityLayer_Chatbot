@@ -1,7 +1,7 @@
 import unittest
 import spaCy
 
-class MyTestCase(unittest.TestCase):
+class spacyTest(unittest.TestCase):
     def test_correct_output(self):
         self.assertEqual(spaCy.extract_entities("hvor er Obama født?"), ['Obama'])  # add assertion here
         self.assertEqual(spaCy.extract_entities("Aalborg er i Danmark"), ['Aalborg', 'Danmark'])  # add assertion here
