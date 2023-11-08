@@ -8,7 +8,7 @@ services:
       - "5000:5000"
   knowledge_retriever:
     # Build the Docker image for the knowledge_retriever container service using the Dockerfile in the ./knowledge_retriever directory
-    build: ./knowledge_retriever
+    build: ./KnowledgeRetriever
     ports:
       - "5001:5000"
     # Link the knowledge_retriever service to the spaCy service. Allows the knowledge_retriever service to communicate with the spaCy service

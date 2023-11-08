@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4db534c-cb4c-4bef-aaf9-c6736208311c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KnowledgeRetriever/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spaCy/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spaCy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spaCy/spaCy.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/spaCy.py" afterDir="false" />
     </list>
