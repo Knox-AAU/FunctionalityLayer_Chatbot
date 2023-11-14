@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4db534c-cb4c-4bef-aaf9-c6736208311c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/KnowledgeRetriever/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spaCy/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spaCy/spaCy.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/spaCy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,13 +26,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "DockerSetup",
-    "last_opened_file_path": "C:/GithubRepos/FunctionalityLayer_Chatbot"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;DockerSetup&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GithubRepos/FunctionalityLayer_Chatbot&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Python.knowledge_retriever">
+    <configuration name="knowledge_retriever" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FunctionalityLayer_Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/KnowledgeRetriever" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="KnowledgeRetriever/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="KnowledgeRetriever/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.KnowledgeRetriever/Dockerfile" />
+      <item itemvalue="Python.knowledge_retriever" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.knowledge_retriever" />
+        <item itemvalue="Docker.KnowledgeRetriever/Dockerfile" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,5 +95,24 @@
       <updated>1699440053996</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="json.dumps(data)" language="Python" />
+        <watch expression="data" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -2,27 +2,32 @@
 from flask import Flask, request, jsonify
 import requests
 import json
+import logging
 
 krEndpoint = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
+
 
 # Function to call the extract_entities API
 def call_extract_entities(input_string):
     # Define the URL of the extract_entities API
-    url = 'http://localhost:5000/extract_entities'
+    url = 'http://spacy-container:5000/extract_entities'
     # Define the headers for the request
     headers = {'Content-Type': 'application/json'}
     # Define the data for the request
     data = {'input_string': input_string}
     # Send a POST request to the extract_entities API
-    print(json.dumps(data))
+    logging.info("Calling spaCy function")
+    # Log the request body
+    logging.info(f'Request body: {json.dumps(data)}')
     response = requests.post(url, headers=headers, data=json.dumps(data))
 
     # If the request was successful, return the response as a Python object
     if response.status_code == 200:
         return response.json()
-    # If the request failed, print an error message and return None
+    # If the request failed, log an error message and return None
     else:
-        print(f'Request failed with status code {response.status_code}')
+        logging.info(f'Request failed with status code {response.status_code}')
         return None
 
 
@@ -63,28 +68,30 @@ def getChatbotResponse(processedData):
 
 """flag = True
 while flag:"""
+
+
 # Get input from the user
-#userInput = promptUser()
+# userInput = promptUser()
 
 # Define a route for the API. This will be the endpoint for the function.
 @krEndpoint.route('/knowledge_retriever', methods=['POST'])
 def knowledge_retriever():
     # Get the input string from the JSON body of the request.
-    userInput = request.json['input_string']
+    userinput = request.json['input_string']
     # Call the extract_entities API in the spacy service to get keywords from the user input
-    keywords = call_extract_entities(userInput)
-    #print(keywords)
-
-    return jsonify(keywords)
+    try:
+        keywords = call_extract_entities(userinput)
+        if keywords is None:
+            return jsonify({'error': 'Failed to extract keywords, Input string = ' + userinput})
+        else:
+            return jsonify(keywords)
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 
 # Run the Flask app.
 if __name__ == '__main__':
-    krEndpoint.run(host='0.0.0.0', port=5000)
-
-
-
-
+    krEndpoint.run(host='0.0.0.0', port=5001)
 
 """repeat = "flag"
 while repeat != "y" and repeat != "n":
