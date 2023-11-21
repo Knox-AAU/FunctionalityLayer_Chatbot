@@ -30,11 +30,11 @@ jobs:
      - name: Run PyTest
        uses: pavelzw/pytest-action@v2.2.0
        with:
-         verbose: true
+         verbose: false
          emoji: false
-         job-summary: true
+         job-summary: false
          custom-arguments: '-q spaCy'
-         click-to-expand: true
+         click-to-expand: false
          report-title: 'Test Report'
 
  docker:
