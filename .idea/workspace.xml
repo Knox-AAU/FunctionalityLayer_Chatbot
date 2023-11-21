@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4db534c-cb4c-4bef-aaf9-c6736208311c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/API_Connections/database_API.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API_Connections/wikidata_API.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,21 +34,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;DockerSetup&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GithubRepos/FunctionalityLayer_Chatbot&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "SQLWrapper",
+    "last_opened_file_path": "C:/GithubRepos/FunctionalityLayer_Chatbot",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GithubRepos\FunctionalityLayer_Chatbot\spaCy" />
       <recent name="C:\GithubRepos\FunctionalityLayer_Chatbot\spaCy\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for spaCy.tests.spaCyTests.spacyTest.test_correct_output">
+  <component name="RunManager">
+    <configuration name="database_API" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="FunctionalityLayer_Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/API_Connections" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/API_Connections/database_API.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="knowledge_retriever" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FunctionalityLayer_Chatbot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -62,7 +85,31 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wikidata_API" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="FunctionalityLayer_Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/API_Connections" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/API_Connections/wikidata_API.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -98,6 +145,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;spaCy.tests.spaCyTests.spacyTest.test_correct_output&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
@@ -106,6 +154,8 @@
     <list>
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Docker.KnowledgeRetriever/Dockerfile" />
+      <item itemvalue="Python.database_API" />
+      <item itemvalue="Python.wikidata_API" />
       <item itemvalue="Python.knowledge_retriever" />
       <item itemvalue="Python tests.Python tests for spaCy.tests.spaCyTests.spacyTest.test_correct_output" />
     </list>
@@ -146,5 +196,17 @@
         <watch expression="data" language="Python" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/knowledge_retriever_py$knowledge_retriever.coverage" NAME="knowledge_retriever Coverage Results" MODIFIED="1700552932640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$knowledge_retriever.coverage" NAME="knowledge_retriever Coverage Results" MODIFIED="1700210132667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/knowledge_retriever_py$API_connect.coverage" NAME="API_connect Coverage Results" MODIFIED="1700552621680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/my_API" />
+    <SUITE FILE_PATH="coverage/knowledge_retriever_py$wikidata_API.coverage" NAME="wikidata_API Coverage Results" MODIFIED="1700576810192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
+    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$Vizualize.coverage" NAME="Vizualize Coverage Results" MODIFIED="1699354832656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API" />
+    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$API_connect.coverage" NAME="API-connect Coverage Results" MODIFIED="1700137266921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API" />
+    <SUITE FILE_PATH="coverage/knowledge_retriever_py$database_API.coverage" NAME="database_API Coverage Results" MODIFIED="1700558720893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
+    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$Doctests_in_api.coverage" NAME="Doctests in api Coverage Results" MODIFIED="1698049555996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Python/3.9/site-packages/requests" />
+    <SUITE FILE_PATH="coverage/knowledge_retriever_py$wikidata_connect.coverage" NAME="wikidata_connect Coverage Results" MODIFIED="1700552738853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/my_API" />
+    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1700123150456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spaCy" />
   </component>
 </project>
