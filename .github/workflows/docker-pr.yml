@@ -67,7 +67,7 @@ jobs:
        uses: docker/build-push-action@v5
        with:
          context: spaCy/
-         file: ./Dockerfile.spacy
+         file: Dockerfile.spacy
          push: true
          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
          platforms: linux/arm64
