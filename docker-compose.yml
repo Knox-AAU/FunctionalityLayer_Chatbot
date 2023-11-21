@@ -11,10 +11,14 @@ services:
     networks:
       - chatbotnetwork
     hostname: spacy-container
+    volumes:
+      - ./spaCy:/spacy
   spacytests:
     build:
       context: ./spaCy
       dockerfile: Dockerfile.tests
+    volumes:
+      - ./spaCy:/spacy
   knowledge_retriever:
     # Build the Docker image for the knowledge_retriever container service using the Dockerfile in the ./knowledge_retriever directory
     build: ./KnowledgeRetriever
@@ -25,6 +29,8 @@ services:
     # Link the knowledge_retriever service to the spaCy service. Allows the knowledge_retriever service to communicate with the spaCy service
     links:
       - spacy
+    volumes:
+      - ./KnowledgeRetriever:/knowledge_retriever
 
 networks:
   chatbotnetwork:
