@@ -1,6 +1,6 @@
 # LÆS README FOR AT FORSTÅ DOCKERFILEN
 
-FROM python:3.10
+FROM python:3.12-slim
 
 LABEL authors="Borup, Ilum, Chsten"
 

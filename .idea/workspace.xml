@@ -6,14 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="f4db534c-cb4c-4bef-aaf9-c6736208311c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/spaCy.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/spaCy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spaCy/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spaCy/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,10 +39,17 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;DockerSetup&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/GithubRepos/FunctionalityLayer_Chatbot&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/GithubRepos/FunctionalityLayer_Chatbot&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.knowledge_retriever">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GithubRepos\FunctionalityLayer_Chatbot\spaCy" />
+      <recent name="C:\GithubRepos\FunctionalityLayer_Chatbot\spaCy\tests" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for spaCy.tests.spaCyTests.spacyTest.test_correct_output">
     <configuration name="knowledge_retriever" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FunctionalityLayer_Chatbot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -73,13 +89,29 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for spaCy.tests.spaCyTests.spacyTest.test_correct_output" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="FunctionalityLayer_Chatbot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spaCy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;spaCy.tests.spaCyTests.spacyTest.test_correct_output&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Docker.KnowledgeRetriever/Dockerfile" />
       <item itemvalue="Python.knowledge_retriever" />
+      <item itemvalue="Python tests.Python tests for spaCy.tests.spaCyTests.spacyTest.test_correct_output" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for spaCy.tests.spaCyTests.spacyTest.test_correct_output" />
         <item itemvalue="Python.knowledge_retriever" />
         <item itemvalue="Docker.KnowledgeRetriever/Dockerfile" />
       </list>
