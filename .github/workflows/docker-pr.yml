@@ -31,6 +31,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
+          context: /
           push: true
           tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
           platforms: linux/arm64
