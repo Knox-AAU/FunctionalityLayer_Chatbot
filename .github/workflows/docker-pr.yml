@@ -59,14 +59,14 @@ jobs:
      - name: Build Docker Compose image
        run: |
          docker-compose build
-     - name: Push Docker Compose image
+     - name: Push Knowledge Retriever image
        uses: docker/build-push-action@v5
        with:
-         context: spaCy/Dockerfile.spacy
+         context: KnowledgeRetriever/
          push: false
          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
          platforms: linux/arm64
-     - name: Push Docker images
+     - name: Push Docker images to Docker Hub
        run: docker-compose push
      - name: Discord notification
        env:
