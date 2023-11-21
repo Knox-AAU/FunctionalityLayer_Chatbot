@@ -56,12 +56,20 @@ jobs:
        shell: bash
        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
        id: extract_branch
-     - name: Build and push with Docker Compose
-       uses: isbang/compose-action@v1.5.1
+     - name: Push Knowledge Retriever image
+       uses: docker/build-push-action@v5
        with:
-         compose-file: "./docker-compose.yml"
+         context: KnowledgeRetriever/
          push: true
-         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
+         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_KnowledgeRetriever
+         platforms: linux/arm64
+     - name: Push spaCy image
+       uses: docker/build-push-action@v5
+       with:
+         context: spaCy/
+         file: spaCy/Dockerfile.spacy
+         push: true
+         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_spaCy
          platforms: linux/arm64
      - name: Discord notification
        env:
