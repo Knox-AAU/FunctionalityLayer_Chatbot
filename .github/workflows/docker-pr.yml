@@ -61,7 +61,7 @@ jobs:
        with:
          context: KnowledgeRetriever/
          push: true
-         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
+         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_KnowledgeRetriever
          platforms: linux/arm64
      - name: Push spaCy image
        uses: docker/build-push-action@v5
@@ -69,7 +69,7 @@ jobs:
          context: spaCy/
          file: spaCy/Dockerfile.spacy
          push: true
-         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
+         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_spaCy
          platforms: linux/arm64
      - name: Discord notification
        env:
