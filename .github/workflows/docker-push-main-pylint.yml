@@ -24,13 +24,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v5
+      - name: Build and push with Docker Compose
+        uses: isbang/compose-action@v1.5.1
         with:
-          context: spaCy/
-          push: true
-          tags: eshes/knox-group-g:master
-          platforms: linux/arm64
+         compose-file: "./docker-compose.yml"
+         push: true
+         tags: eshes/knox-group-g:master
+         platforms: linux/arm64
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
