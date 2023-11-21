@@ -56,18 +56,13 @@ jobs:
        shell: bash
        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
        id: extract_branch
-     - name: Build Docker Compose image
-       run: |
-         docker-compose build
      - name: Push Knowledge Retriever image
        uses: docker/build-push-action@v5
        with:
          context: KnowledgeRetriever/
-         push: false
+         push: true
          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
          platforms: linux/arm64
-     - name: Push Docker images to Docker Hub
-       run: docker-compose push
      - name: Discord notification
        env:
          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
