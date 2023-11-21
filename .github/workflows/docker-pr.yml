@@ -35,6 +35,12 @@ jobs:
          push: true
          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
          platforms: linux/arm64
+     - name: Discord notification
+       env:
+         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+       uses: Ilshidur/action-discord@master
+       with:
+         args: 'The project **${{ steps.extract_branch.outputs.branch }}** has been deployed to Docker.'
 
  pytest:
    runs-on: ubuntu-latest
@@ -48,7 +54,7 @@ jobs:
      - name: Install dependencies
        run: |
          python -m pip install --upgrade pip
-         pip install -r requirements.txt
+         pip install -r /spaCy/requirements.txt
      - name: Run PyTest
        uses: pavelzw/pytest-action@v2.2.0
        with:
@@ -58,13 +64,3 @@ jobs:
          custom-arguments: '-q'
          click-to-expand: true
          report-title: 'Test Report'
-
- discord:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Discord notification
-       env:
-         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-       uses: Ilshidur/action-discord@master
-       with:
-         args: 'The project **${{ steps.extract_branch.outputs.branch }}** has been deployed to Docker.'
