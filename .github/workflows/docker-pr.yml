@@ -33,6 +33,7 @@ jobs:
          custom-arguments: '-q'
          click-to-expand: true
          report-title: 'Test Report'
+         path: 'spaCy/'
 
  docker:
    needs: pytest
