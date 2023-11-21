@@ -62,7 +62,7 @@ jobs:
      - name: Push Docker Compose image
        uses: docker/build-push-action@v5
        with:
-         context: spaCy/
+         context: spaCy/Dockerfile.spacy
          push: false
          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}
          platforms: linux/arm64
