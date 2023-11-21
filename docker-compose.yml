@@ -1,0 +1,30 @@
+version: '3'
+services:
+  spacy:
+    # Build the Docker image for the app service using the Dockerfile in the ./spaCy directory.
+    build:
+      context: ./spaCy
+      dockerfile: Dockerfile.spacy
+    # Map port 5000 in the container to port 5000 on the host machine.
+    ports:
+      - "5000:5000"
+    networks:
+      - chatbotnetwork
+    hostname: spacy-container
+  spacytests:
+    build:
+      context: ./spaCy
+      dockerfile: Dockerfile.tests
+  knowledge_retriever:
+    # Build the Docker image for the knowledge_retriever container service using the Dockerfile in the ./knowledge_retriever directory
+    build: ./KnowledgeRetriever
+    ports:
+      - "5001:5001"
+    networks:
+      - chatbotnetwork
+    # Link the knowledge_retriever service to the spaCy service. Allows the knowledge_retriever service to communicate with the spaCy service
+    links:
+      - spacy
+
+networks:
+  chatbotnetwork:
