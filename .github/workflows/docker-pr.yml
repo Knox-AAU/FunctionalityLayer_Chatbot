@@ -30,10 +30,9 @@ jobs:
          verbose: true
          emoji: false
          job-summary: true
-         custom-arguments: '-q'
+         custom-arguments: '-q spaCy/'
          click-to-expand: true
          report-title: 'Test Report'
-         path: 'spaCy/'
 
  docker:
    needs: pytest
