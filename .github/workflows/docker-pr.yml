@@ -30,7 +30,7 @@ jobs:
          verbose: true
          emoji: false
          job-summary: true
-         custom-arguments: '-q /spaCy'
+         custom-arguments: '-q spaCy'
          click-to-expand: true
          report-title: 'Test Report'
 
