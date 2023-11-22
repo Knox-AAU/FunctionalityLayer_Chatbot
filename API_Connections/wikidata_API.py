@@ -80,8 +80,10 @@ def getAllKGs(keywords):
                 ORDER BY xsd:integer(STRAFTER(STR(?wd), "http://www.wikidata.org/entity/P"))
                 LIMIT 10
                 """
-        KGs.append(call_wikidata_API(query))
-        print(KGs)
+        result = call_wikidata_API(query)
+        print(result)
+        KGs.append(result)
+
 
 getAllKGs(keywords)
 
