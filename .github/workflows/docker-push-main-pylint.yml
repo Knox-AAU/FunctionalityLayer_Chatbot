@@ -30,7 +30,7 @@ jobs:
          context: KnowledgeRetriever/
          push: true
          tags: eshes/knox-group-g:Master_KnowledgeRetriever
-         platforms: linux/arm64
+         platforms: linux/amd64,linux/arm64
       - name: Push spaCy image
         uses: docker/build-push-action@v5
         with:
@@ -38,7 +38,7 @@ jobs:
          file: spaCy/Dockerfile.spacy
          push: true
          tags: eshes/knox-group-g:Master_spaCy
-         platforms: linux/arm64
+         platforms: linux/amd64,linux/arm64
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
