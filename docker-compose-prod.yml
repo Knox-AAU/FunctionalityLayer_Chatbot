@@ -21,5 +21,12 @@ services:
     # Link the knowledge_retriever service to the spaCy service. Allows the knowledge_retriever service to communicate with the spaCy service
     links:
       - spacy
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300
+    environment:
+      WATCHTOWER_CLEANUP: eshes/knox-group-g:Master_spaCy,eshes/knox-group-g:Master_KnowledgeRetriever
 networks:
   chatbotnetwork:
