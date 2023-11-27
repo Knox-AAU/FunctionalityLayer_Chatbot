@@ -27,6 +27,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 300
     environment:
-      WATCHTOWER_CLEANUP: eshes/knox-group-g:Master_spaCy,eshes/knox-group-g:Master_KnowledgeRetriever
+      WATCHTOWER_CLEANUP: 'true'
 networks:
   chatbotnetwork:
