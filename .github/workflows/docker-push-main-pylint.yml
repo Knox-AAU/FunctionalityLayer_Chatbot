@@ -24,13 +24,21 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
+      - name: Push Knowledge Retriever image
         uses: docker/build-push-action@v5
         with:
-          context: spaCy/
-          push: true
-          tags: eshes/knox-group-g:master
-          platforms: linux/arm64
+         context: KnowledgeRetriever/
+         push: true
+         tags: eshes/knox-group-g:Master_KnowledgeRetriever
+         platforms: linux/amd64,linux/arm64
+      - name: Push spaCy image
+        uses: docker/build-push-action@v5
+        with:
+         context: spaCy/
+         file: spaCy/Dockerfile.spacy
+         push: true
+         tags: eshes/knox-group-g:Master_spaCy
+         platforms: linux/amd64,linux/arm64
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
@@ -40,19 +48,15 @@ jobs:
           
   pylint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
     steps:
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.12
         uses: actions/setup-python@v3
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.12
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pylint
       - name: Analysing the code with pylint
         continue-on-error: true
-        run: |
-          pylint $(git ls-files '*.py')
+        run: pylint ./**/*.py

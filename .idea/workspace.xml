@@ -11,6 +11,9 @@
       <change beforePath="$PROJECT_DIR$/API_Connections/database_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/database_API.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API_Connections/wikidata_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/wikidata_API.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-prodtest.yml" beforeDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +54,16 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Test__Watchtower",
+    "last_opened_file_path": "C:/GithubRepos/FunctionalityLayer_Chatbot",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/API_Connections" />
+      <recent name="C:\GithubRepos\FunctionalityLayer_Chatbot" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GithubRepos\FunctionalityLayer_Chatbot\spaCy" />
