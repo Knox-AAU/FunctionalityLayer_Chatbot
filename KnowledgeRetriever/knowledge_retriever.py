@@ -46,7 +46,7 @@ def processKeywords(keywords):
     return processedKeywords
 
 
-def getGraphAPIData(processedKeywords):
+def getGraphAPIData(Keywords):
     knowledgeGraphdata = []
     raise Exception("'getGraphAPIData' Not yet implemented")
     return knowledgeGraphdata

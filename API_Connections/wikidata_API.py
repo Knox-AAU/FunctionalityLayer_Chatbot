@@ -1,7 +1,12 @@
+from flask import Flask, request, jsonify
 from SPARQLWrapper import SPARQLWrapper, JSON
 from requests import get
+import logging
 
-keywords = ["Aalborg", "Berlin"]
+wikidataEndpoint = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
+
+#keywords = ["Aalborg", "Berlin"]
 
 # Get wikidata Q-number for all entities.
 def get_qnumber(wikiarticle, wikisite):
@@ -15,17 +20,7 @@ def get_qnumber(wikiarticle, wikisite):
 
     return list(resp['entities'])[0]
 
-def call_wikidata_API(query):
-    # Set up the SPARQL endpoint URL
-    sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
-
-    # Set the query string and return format
-    sparql.setQuery(query)
-    sparql.setReturnFormat(JSON)
-
-    # Execute the query and get the results
-    results = sparql.query().convert()
-    # Construct the desired JSON structure
+def formatTripleObject(results):
     json_results = []
 
     for result in results["results"]["bindings"]:
@@ -44,68 +39,63 @@ def call_wikidata_API(query):
                 }
         }
         json_results.append(triple)
+    return json_results
 
-    # Create the final JSON object
-    json_object = {
-        # "query": query,  #Query udkommenteret, da vi ikke ønsker at bruge for mange tokens i Llama input.
-        "triples": json_results
-    }
+def call_wikidata_API(query):
+    # Set up the SPARQL endpoint URL
+    sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+
+    # Set the query string and return format
+    sparql.setQuery(query)
+    sparql.setReturnFormat(JSON)
+
+    # Execute the query and get the results
+    results = sparql.query().convert()
+    # Construct the desired JSON structure
+    formattedTriples = formatTripleObject(results)
 
     # return json object
-    return json_object
+    return formattedTriples
 
-def getAllKGs(keywords):
-    KGs = []
+@wikidataEndpoint.route('/GetTriples', methods=['POST'])
+def GetTriples():
+    logging.info("GetTriples was called")
+    keywords = request.json['keywords']
+    logging.info(request.json)
+    logging.info(keywords)
+    triples = []
 
     for entity in keywords:
         s_value = "wd:" + get_qnumber(wikiarticle=entity, wikisite="enwiki")
-        print(s_value)
         # Set the query string
         query = f"""
                 SELECT DISTINCT ?subject ?predicate ?object
                 WHERE {{
                  VALUES (?s) {{({s_value})}}
                  ?s ?wdt ?o .
-                 ?wd wikibase:directClaim ?wdt .
-                 ?wd rdfs:label ?wdLabel .
+                 ?p wikibase:directClaim ?wdt .
+                 ?p rdfs:label ?pLabel .
                  ?s rdfs:label ?sLabel .
                  ?o rdfs:label ?oLabel .
                  FILTER (lang(?sLabel) = "en")
                  FILTER (lang(?oLabel) = "en")
-                 FILTER (lang(?wdLabel) = "en")
-                 BIND (COALESCE(?oLabel, ?o) AS ?object)
-                 BIND (COALESCE(?wdLabel, ?wd) AS ?predicate)
+                 FILTER (lang(?pLabel) = "en")
+                 BIND (?oLabel AS ?object)
+                 BIND (?pLabel AS ?predicate)
                  BIND (?sLabel AS ?subject)
                  }} 
                 ORDER BY xsd:integer(STRAFTER(STR(?wd), "http://www.wikidata.org/entity/P"))
                 LIMIT 10
                 """
         result = call_wikidata_API(query)
-        print(result)
-        KGs.append(result)
 
+        logging.info(result)
+        triples.extend(result)
 
-getAllKGs(keywords)
+    merged_triples = {
+        "triples": triples
+    }
+    return jsonify(merged_triples)
 
-
-''' udkommenteret
-query = """
-SELECT DISTINCT ?subject ?predicate ?object
-WHERE {
-  VALUES (?s) {(wd:Q25410)}
-  ?s ?wdt ?o .
-  ?wd wikibase:directClaim ?wdt .
-  ?wd rdfs:label ?wdLabel .
-  ?s rdfs:label ?sLabel .
-  ?o rdfs:label ?oLabel .
-  FILTER (lang(?sLabel) = "en")
-  FILTER (lang(?oLabel) = "en")
-  FILTER (lang(?wdLabel) = "en")
-  BIND (COALESCE(?oLabel, ?o) AS ?object)
-  BIND (COALESCE(?wdLabel, ?wd) AS ?predicate)
-  BIND (?sLabel AS ?subject)
- } 
-ORDER BY xsd:integer(STRAFTER(STR(?wd), "http://www.wikidata.org/entity/P"))
-LIMIT 10
-"""
-'''
+if __name__ == '__main__':
+   wikidataEndpoint.run(host='0.0.0.0', port=5002)
