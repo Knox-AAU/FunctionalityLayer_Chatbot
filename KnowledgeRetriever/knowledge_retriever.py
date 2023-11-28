@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 # Function to call the extract_entities API
 def call_extract_entities(input_string):
     # Define the URL of the extract_entities API
-    url = 'http://spacy-container:5000/extract_entities'
+    url = 'http://spacy-container:5003/extract_entities'
     # Define the headers for the request
     headers = {'Content-Type': 'application/json'}
     # Define the data for the request
@@ -30,8 +30,27 @@ def call_extract_entities(input_string):
         logging.info(f'Request failed with status code {response.status_code}')
         return None
 
+def get_api_data(keywords):
+    # Define the URL of the extract_entities API
+    url = 'http://api-container:5002/GetTriples'
+    # Define the headers for the request
+    headers = {'Content-Type': 'application/json'}
+    # Define the data for the request
+    data = {'keywords': keywords}
+    # Send a POST request to the extract_entities API
+    logging.info("Calling database API function")
+    # Log the request body
+    logging.info(f'Request body: {json.dumps(data)}')
+    response = requests.post(url, headers=headers, data=json.dumps(data))
 
-# Nedestående funktioner kan bare slettes og erstattes med de rigtige :)
+    # If the request was successful, return the response as a Python object
+    if response.status_code == 200:
+        return response.json()
+    # If the request failed, log an error message and return None
+    else:
+        logging.info(f'Request failed with status code {response.status_code}')
+        return None
+
 
 def promptUser():
     print("What would you like to ask the chatbot?")
@@ -46,7 +65,7 @@ def processKeywords(keywords):
     return processedKeywords
 
 
-def getGraphAPIData(processedKeywords):
+def getGraphAPIData(Keywords):
     knowledgeGraphdata = []
     raise Exception("'getGraphAPIData' Not yet implemented")
     return knowledgeGraphdata
@@ -79,8 +98,11 @@ def knowledge_retriever():
     # Get the input string from the JSON body of the request.
     userinput = request.json['input_string']
     # Call the extract_entities API in the spacy service to get keywords from the user input
+    keywords = call_extract_entities(userinput)
+    knowledgeGraphData = get_api_data(keywords)
+    return knowledgeGraphData
+
     try:
-        keywords = call_extract_entities(userinput)
         if keywords is None:
             return jsonify({'error': 'Failed to extract keywords, Input string = ' + userinput})
         else:
