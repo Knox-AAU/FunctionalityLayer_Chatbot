@@ -16,7 +16,7 @@ RUN python -m spacy download da_core_news_md
 
 
 # Expose port 5000 for the Flask app to run on.
-EXPOSE 5000
+EXPOSE 5003
 # Define the command that will be executed when the Docker container starts.
 CMD ["python", "spaCy.py"]
 

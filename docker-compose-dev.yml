@@ -8,7 +8,7 @@ services:
     container_name: entity_extraction
     # Map port 5000 in the container to port 5000 on the host machine.
     ports:
-      - "5000:5000"
+      - "5003:5003"
     networks:
       - chatbotnetwork
     hostname: spacy-container
@@ -31,8 +31,21 @@ services:
     # Link the knowledge_retriever service to the spaCy service. Allows the knowledge_retriever service to communicate with the spaCy service
     links:
       - spacy
+      - api_connect
     volumes:
       - ./KnowledgeRetriever:/knowledge_retriever
-
+  api_connect:
+    # Build the Docker image for the app service using the Dockerfile in the ./spaCy directory.
+    build:
+      context: ./API_Connections
+    container_name: api_connections
+    # Map port 5002 in the container to port 5002 on the host machine.
+    ports:
+      - "5002:5002"
+    networks:
+      - chatbotnetwork
+    hostname: api-container
+    volumes:
+      - ./API_Connections:/api_connections
 networks:
   chatbotnetwork:

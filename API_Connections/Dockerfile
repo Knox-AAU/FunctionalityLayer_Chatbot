@@ -3,9 +3,9 @@ FROM python:3.12-slim
 LABEL authors="Ilum"
 
 # Set the working directory in the container to /spaCy.
-WORKDIR /apiConnections
+WORKDIR /api_connections
 # Copy the current directory (The directory containing the Dockerfile) into the container at /spaCy.
-COPY . /apiConnections
+COPY . /api_connections
 
 # Install the Python dependencies.
 RUN pip install -r requirements.txt

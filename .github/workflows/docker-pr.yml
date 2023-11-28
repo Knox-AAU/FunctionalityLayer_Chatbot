@@ -71,6 +71,13 @@ jobs:
          push: true
          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_spaCy
          platforms: linux/amd64,linux/arm64
+     - name: Push api connection image
+       uses: docker/build-push-action@v5
+       with:
+         context: API_Connections/
+         push: true
+         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_ApiConnect
+         platforms: linux/amd64,linux/arm64
      - name: Discord notification
        env:
          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}

@@ -4,9 +4,9 @@ services:
     # Get the Docker image for the app service using the Dockerfile in the ./spaCy directory.
     image: eshes/knox-group-g:Master_spaCy
     container_name: entity_extraction_prod
-    # Map port 5000 in the container to port 5000 on the host machine.
+    # Map port 5003 in the container to port 5003 on the host machine.
     ports:
-      - "5000:5000"
+      - "5003:5003"
     networks:
       - chatbotnetwork
     hostname: spacy-container
@@ -18,9 +18,22 @@ services:
       - "5001:5001"
     networks:
       - chatbotnetwork
-    # Link the knowledge_retriever service to the spaCy service. Allows the knowledge_retriever service to communicate with the spaCy service
+    # Link the knowledge_retriever service to the spaCy and API service. Allows the knowledge_retriever service to communicate with the spaCy service
     links:
       - spacy
+      - api_connect
+  api_connect:
+    # Build the Docker image for the app service using the Dockerfile in the ./API_Connections directory.
+    image: eshes/knox-group-g:Master_ApiConnect
+    container_name: api_connections_prod
+    # Map port 5002 in the container to port 5002 on the host machine.
+    ports:
+      - "5002:5002"
+    networks:
+      - chatbotnetwork
+    hostname: api-container
+    volumes:
+      - ./API_Connections:/api_connections
   watchtower:
     image: containrrr/watchtower
     volumes:

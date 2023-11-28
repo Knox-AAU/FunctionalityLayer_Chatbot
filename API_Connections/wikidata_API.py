@@ -17,6 +17,8 @@ def get_qnumber(wikiarticle, wikisite):
                 'props': '',
                 'format': 'json'
                            }).json()
+    logging.info(resp)
+    logging.info(list(resp['entities'])[0])
 
     return list(resp['entities'])[0]
 
@@ -66,7 +68,12 @@ def GetTriples():
     triples = []
 
     for entity in keywords:
-        s_value = "wd:" + get_qnumber(wikiarticle=entity, wikisite="enwiki")
+        identifier_value = get_qnumber(wikiarticle=entity, wikisite="enwiki")
+        if identifier_value == "-1":
+            #add fejlmeddelse til flask..
+            continue
+
+        s_value = "wd:" + identifier_value
         # Set the query string
         query = f"""
                 SELECT DISTINCT ?subject ?predicate ?object
