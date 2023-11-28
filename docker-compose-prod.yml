@@ -32,8 +32,6 @@ services:
     networks:
       - chatbotnetwork
     hostname: api-container
-    volumes:
-      - ./API_Connections:/api_connections
   watchtower:
     image: containrrr/watchtower
     volumes:
