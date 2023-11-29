@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API_Connections/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_Connections/wikidata_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/wikidata_API.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/Dockerfile.spacy" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/Dockerfile.spacy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/spaCy.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaCy/spaCy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_Connections/database_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/database_API.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,12 +47,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "SQLWrapper",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SQLWrapper&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/API_Connections" />
@@ -70,7 +67,7 @@
       <recent name="C:\GithubRepos\FunctionalityLayer_Chatbot\spaCy\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager">
     <configuration name="database_API" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="FunctionalityLayer_Chatbot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -191,7 +188,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f4db534c-cb4c-4bef-aaf9-c6736208311c" name="Changes" comment="" />
+      <changelist id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="" />
       <created>1699440053996</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -199,6 +196,8 @@
       <workItem from="1700815315757" duration="7255000" />
       <workItem from="1701077334067" duration="4063000" />
       <workItem from="1701160971563" duration="9489000" />
+      <workItem from="1701248183605" duration="7902000" />
+      <workItem from="1701265123094" duration="442000" />
     </task>
     <servers />
   </component>
@@ -232,14 +231,14 @@
     <SUITE FILE_PATH="coverage/knowledge_retriever_py$knowledge_retriever.coverage" NAME="knowledge_retriever Coverage Results" MODIFIED="1700650016957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/KnowledgeRetriever" />
     <SUITE FILE_PATH="coverage/knowledge_retriever_py$database_API.coverage" NAME="database_API Coverage Results" MODIFIED="1700649791556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
     <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$Doctests_in_api.coverage" NAME="Doctests in api Coverage Results" MODIFIED="1698049555996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Python/3.9/site-packages/requests" />
-    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$wikidata_API.coverage" NAME="wikidata_API Coverage Results" MODIFIED="1701167453052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
+    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$wikidata_API.coverage" NAME="wikidata_API Coverage Results" MODIFIED="1701265175498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
     <SUITE FILE_PATH="coverage/knowledge_retriever_py$wikidata_connect.coverage" NAME="wikidata_connect Coverage Results" MODIFIED="1700552738853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/my_API" />
     <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$knowledge_retriever.coverage" NAME="knowledge_retriever Coverage Results" MODIFIED="1700210132667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/knowledge_retriever_py$API_connect.coverage" NAME="API_connect Coverage Results" MODIFIED="1700552621680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/my_API" />
     <SUITE FILE_PATH="coverage/knowledge_retriever_py$wikidata_API.coverage" NAME="wikidata_API Coverage Results" MODIFIED="1700646859842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
     <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$Vizualize.coverage" NAME="Vizualize Coverage Results" MODIFIED="1699354832656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API" />
     <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$API_connect.coverage" NAME="API-connect Coverage Results" MODIFIED="1700137266921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API" />
-    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$database_API.coverage" NAME="database_API Coverage Results" MODIFIED="1701168621701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
+    <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$database_API.coverage" NAME="database_API Coverage Results" MODIFIED="1701265392209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API_Connections" />
     <SUITE FILE_PATH="coverage/FunctionalityLayer_Chatbot$main.coverage" NAME="main Coverage Results" MODIFIED="1700123150456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spaCy" />
   </component>
 </project>
