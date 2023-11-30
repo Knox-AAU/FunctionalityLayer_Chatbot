@@ -32,6 +32,14 @@ services:
     networks:
       - chatbotnetwork
     hostname: api-container
+  llama:
+    image: eshes/knox-group-g:Master_Llama
+    container_name: llama_prod
+    ports:
+      - "5004:5004"
+    networks:
+      - chatbotnetwork
+    hostname: llama-container
   watchtower:
     image: containrrr/watchtower
     volumes:

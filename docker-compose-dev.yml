@@ -47,5 +47,15 @@ services:
     hostname: api-container
     volumes:
       - ./API_Connections:/api_connections
+  llama:
+    build: ./llama
+    container_name: llama
+    ports:
+      - "5004:5004"
+    networks:
+      -chatbotnetwork:
+    hostname: llama-container
+    volumes:
+      - ./llama:/llama
 networks:
   chatbotnetwork:

@@ -78,6 +78,13 @@ jobs:
          push: true
          tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_ApiConnect
          platforms: linux/amd64,linux/arm64
+     - name: Push Llama image
+       uses: docker/build-push-action@v5
+       with:
+         context: Llama/
+         push: true
+         tags: eshes/knox-group-g:${{ steps.extract_branch.outputs.branch }}_Llama
+         platforms: linux/amd64,linux/arm64
      - name: Discord notification
        env:
          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
