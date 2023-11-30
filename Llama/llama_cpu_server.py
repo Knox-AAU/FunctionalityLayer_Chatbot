@@ -28,7 +28,7 @@ def generate_response():
             # Create the model if it was not previously created
             if model is None:
                 # Put the location of to the GGUF model that you've download from HuggingFace here
-                model_path = "**path to your llama-2–7b-chat.Q2_K.gguf**"
+                model_path = "Llama2.gguf"
 
                 # Create the model
                 model = Llama(model_path=model_path)

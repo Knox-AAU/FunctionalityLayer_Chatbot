@@ -92,7 +92,7 @@ def GetTriples():
                  BIND (?sLabel AS ?subject)
                  }} 
                 ORDER BY xsd:integer(STRAFTER(STR(?wd), "http://www.wikidata.org/entity/P"))
-                LIMIT 10
+                LIMIT 5
                 """
         result = call_wikidata_API(query)
 

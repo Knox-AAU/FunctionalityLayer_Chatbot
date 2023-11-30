@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Llama/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Llama/llama_cpi_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_Connections/wikidata_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/wikidata_API.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Llama/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Llama/llama_cpi_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/llama_cpu_server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
