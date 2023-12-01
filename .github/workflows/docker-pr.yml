@@ -26,8 +26,10 @@ jobs:
          pip install --no-cache-dir pytest
          pip install -U pip setuptools wheel
          pip install -U spacy
-         pip install SPARQLWrapper
          python -m spacy download da_core_news_md
+         pip install SPARQLWrapper
+         pip install jsonschema
+         pip install requests
      - name: Run PyTest
        uses: pavelzw/pytest-action@v2.2.0
        with:
