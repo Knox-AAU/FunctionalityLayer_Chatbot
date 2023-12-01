@@ -33,7 +33,7 @@ jobs:
          verbose: false
          emoji: false
          job-summary: false
-         custom-arguments: '-q spaCy'
+         custom-arguments: '-q spaCy API_Connections'
          click-to-expand: false
          report-title: 'Test Report'
 
