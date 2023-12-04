@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from llama_cpp import Llama
 
 # Create a Flask object
-app = Flask("Llama server")
+app = Flask(__name__)
 model = None
 
 

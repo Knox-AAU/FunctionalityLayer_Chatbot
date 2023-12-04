@@ -1,0 +1,25 @@
+# Use the official Python image from the Docker Hub.
+# First stage: Install and Copy necessary packages to image
+FROM python:3.12-slim
+LABEL authors="Ilum"
+
+# Set the working directory in the container to /spaCy/tests.
+WORKDIR /spacy
+
+# Copy the current directory (The directory containing the Dockerfile) into the container at /spaCy.
+COPY test_ExtractEntities.py /spacy
+COPY requirements.txt /spacy
+COPY spaCy.py /spacy
+
+# Install the Python dependencies.
+RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir pytest
+
+# Installing requirements for SpaCy
+RUN pip install -U pip setuptools wheel
+RUN pip install -U spacy
+RUN python -m spacy download da_core_news_md
+RUN pip install pytest
+
+# Define the command that will be executed when the Docker container starts.
+CMD ["pytest", "-s"]
