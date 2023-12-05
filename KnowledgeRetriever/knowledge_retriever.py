@@ -30,6 +30,32 @@ def call_extract_entities(input_string):
         logging.info(f'Request failed with status code {response.status_code}')
         return None
 
+
+def call_llama(user_prompt, pre_prompt, knowledge_graph, tokens):
+    # Define the URL of the llama api
+    url = 'http://llama-container:5004/llama'
+    # Define the headers for the request
+    headers = {'Content-Type': 'application/json'}
+
+    system_message = f'{pre_prompt} {knowledge_graph}'
+    # Define the data for the request
+    input = {'user_message': user_prompt, 'system_message': system_message, 'max_tokens': tokens}
+    # Send the POST request to the llama API
+    logging.info('Calling Llama function')
+    # Log the request body
+    logging.info(f'Request body: {json.dumps(input)}')
+    response = requests.post(url, headers=headers, data=json.dumps(input))
+    logging.info(f'LLama response: {response}')
+
+    # if the request was successful, return the response as a Python object
+    if response.status_code == 200:
+        return response.json()
+    # If the request failed, log an error message and return none
+    else:
+        logging.info(f'Request failed with status code {response.status_code}')
+        return None
+
+
 def get_api_data(keywords):
     # Define the URL of the extract_entities API
     url = 'http://api-container:5002/GetTriples'
@@ -100,15 +126,17 @@ def knowledge_retriever():
     # Call the extract_entities API in the spacy service to get keywords from the user input
     keywords = call_extract_entities(userinput)
     knowledgeGraphData = get_api_data(keywords)
-    return knowledgeGraphData
+    llama_response = None
 
-    try:
-        if keywords is None:
-            return jsonify({'error': 'Failed to extract keywords, Input string = ' + userinput})
-        else:
-            return jsonify(keywords)
-    except Exception as e:
-        return jsonify({'error': str(e)})
+    #logging.info(f'RunLlama: {request.json["run_llama"]}, hasattr: {hasattr(request.json, "run_llama")}')
+    if 'run_llama' not in request.json or request.json['run_llama'] is True:
+        llama_response = call_llama(userinput, 'Based on this prompt, give me an answer', knowledgeGraphData, 1000)
+
+    if llama_response is None:
+        logging.info('Llama output empty')
+        return jsonify({'Llama error': 'Llama function failed or was not executed', 'Knowledge Graph output': knowledgeGraphData})
+    else:
+        return llama_response
 
 
 # Run the Flask app.
