@@ -30,6 +30,7 @@ def call_extract_entities(input_string):
         logging.info(f'Request failed with status code {response.status_code}')
         return None
 
+
 def call_llama(user_prompt, pre_prompt, knowledge_graph, tokens):
     # Define the URL of the llama api
     url = 'http://llama-container:5004/llama'
@@ -53,6 +54,8 @@ def call_llama(user_prompt, pre_prompt, knowledge_graph, tokens):
     else:
         logging.info(f'Request failed with status code {response.status_code}')
         return None
+
+
 def get_api_data(keywords):
     # Define the URL of the extract_entities API
     url = 'http://api-container:5002/GetTriples'
@@ -123,10 +126,15 @@ def knowledge_retriever():
     # Call the extract_entities API in the spacy service to get keywords from the user input
     keywords = call_extract_entities(userinput)
     knowledgeGraphData = get_api_data(keywords)
-    llama_response = call_llama(userinput, 'Based on this prompt, give me an answer', knowledgeGraphData, 1000)
+    llama_response = None
+
+    #logging.info(f'RunLlama: {request.json["run_llama"]}, hasattr: {hasattr(request.json, "run_llama")}')
+    if 'run_llama' not in request.json or request.json['run_llama'] is True:
+        llama_response = call_llama(userinput, 'Based on this prompt, give me an answer', knowledgeGraphData, 1000)
+
     if llama_response is None:
         logging.info('Llama output empty')
-        return jsonify({'Llama error': 'Llama function failed', 'Knowledge Graph output': knowledgeGraphData})
+        return jsonify({'Llama error': 'Llama function failed or was not executed', 'Knowledge Graph output': knowledgeGraphData})
     else:
         return llama_response
 

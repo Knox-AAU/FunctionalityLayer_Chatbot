@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Llama/Dockerfile.tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llama/llama_cpu_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/llama_cpu_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaCy/spaCyTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/test_Llama.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Llama/Dockerfile.tests" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Llama/test_Llama.py" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/test_Llama.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +223,7 @@
       <workItem from="1701160971563" duration="9489000" />
       <workItem from="1701433432229" duration="3613000" />
       <workItem from="1701691651386" duration="1533000" />
-      <workItem from="1701693455163" duration="5156000" />
+      <workItem from="1701693455163" duration="10935000" />
     </task>
     <servers />
   </component>

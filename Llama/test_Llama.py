@@ -24,12 +24,25 @@ def test_llama(client, system_message, user_message, max_tokens):
     assert response_json is not None
     assert response.status_code == 200
 
+
 def test_llama_fail(client):
-    # Simulate a POST request to the endpoint
     longvar = "test " * 1000
     response = client.post('/llama', json={'system_message': longvar, 'user_message': longvar,
                                            'max_tokens': 100})
     response_json = response.get_json()
-    # Check that the response status code is 200 (OK)
     assert response_json is not None
     assert response.status_code == 500
+
+
+def test_empty_llama_input(client):
+    response = client.post('/llama', json={'system_message': "", 'user_message': "",
+                                           'max_tokens': 100})
+    response_json = response.get_json()
+    assert response_json is not None
+    assert response.status_code == 200
+
+def test_no_user_message_llama_input(client):
+    response = client.post('/llama', json={'max_tokens': 100})
+    response_json = response.get_json()
+    assert response_json is not None
+    assert response.status_code == 400

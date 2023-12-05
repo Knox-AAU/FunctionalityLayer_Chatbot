@@ -33,7 +33,7 @@ services:
       - chatbotnetwork
     hostname: api-container
   llama:
-    image: eshes/knox-group-g:Master_Llama
+    image: eshes/knox-group-g:master_llama
     container_name: llama_prod
     ports:
       - "5004:5004"
