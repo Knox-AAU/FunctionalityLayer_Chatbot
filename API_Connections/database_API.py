@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import logging
 import requests
 #keywords = ["Aalborg", "Berlin"]
-url = "http://localhost:8000/triples?g=http://knox_database"
+url = "http://130.225.57.13/knox-api/triples?g=http://knox_database"
 
 KnoxDatabaseEndpoint = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -28,12 +28,14 @@ def GetTriples():
     logging.info(keywords)
     triples = []
     for entity in keywords:
+        header={"Access-Authorization":"internal_key"}
+
         # Add each entity add as subject and object
         subURL = add_url_query(entity, "subject")
         objURL = add_url_query(entity, "object")
 
-        subjectResponse = requests.get(subURL)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
-        objectResponse = requests.get(objURL)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
+        subjectResponse = requests.get(subURL,headers=header)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
+        objectResponse = requests.get(objURL,headers=header)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
 
         if subjectResponse.status_code >= 500 or objectResponse.status_code >= 500:
             raise Exception("Serverside Error")
