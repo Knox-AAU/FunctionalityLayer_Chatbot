@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llama/Dockerfile.tests" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llama/test_Llama.py" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/test_Llama.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_Connections/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +46,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;API__Llama&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/thomasbjeldbak/Documents/Documents - Thomas’s MacBook Pro/P5/FunctionalityLayer_Chatbot&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "APIFix",
+    "last_opened_file_path": "/Users/thomasbjeldbak/Documents/Documents - Thomas’s MacBook Pro/P5/FunctionalityLayer_Chatbot",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/API_Connections" />
@@ -84,7 +79,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.9" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/API_Connections" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -129,7 +123,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.9" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/API_Connections" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
