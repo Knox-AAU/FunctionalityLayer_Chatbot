@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 from SPARQLWrapper import SPARQLWrapper, JSON
+import jsonschema
+from jsonschema import validate
 from requests import get
 import logging
 
@@ -8,12 +10,14 @@ logging.basicConfig(level=logging.INFO)
 
 #keywords = ["Aalborg", "Berlin"]
 
+WIKISITE = "enwiki"
+
 # Get wikidata Q-number for all entities.
-def get_qnumber(wikiarticle, wikisite):
+def get_qnumber(wikipage):
     resp = get('https://www.wikidata.org/w/api.php', {
                 'action': 'wbgetentities',
-                'titles': wikiarticle,
-                'sites': wikisite,
+                'titles': wikipage,
+                'sites': WIKISITE,
                 'props': '',
                 'format': 'json'
                            }).json()
@@ -23,6 +27,16 @@ def get_qnumber(wikiarticle, wikisite):
     return list(resp['entities'])[0]
 
 def formatTripleObject(results):
+
+        # Check if the expected structure is present in the JSON
+    if "results" not in results or "bindings" not in results["results"]:
+        raise ValueError("Invalid JSON format. Expected 'results' with 'bindings'")
+
+    for result in results["results"]["bindings"]:
+        # Assuming subject, predicate, and object are always present in each result
+        if "subject" not in result or "predicate" not in result or "object" not in result:
+            raise ValueError("Invalid JSON format. Expected 'subject', 'predicate', and 'object' in each binding")
+        
     json_results = []
 
     for result in results["results"]["bindings"]:
@@ -52,7 +66,28 @@ def call_wikidata_API(query):
     sparql.setReturnFormat(JSON)
 
     # Execute the query and get the results
-    results = sparql.query().convert()
+    try:
+        results = sparql.query().convert()
+    except Exception as error:
+        raise Exception("Bad Query")
+
+    logging.info(results)
+    logging.info(results["head"]["vars"])
+
+    #check if the results contain subject, object and predicate keywords
+    if ("subject" not in results["head"]["vars"] or 
+       "predicate" not in results["head"]["vars"] or 
+       "object" not in results["head"]["vars"]):
+        logging.info("result did not contain either subject, object or predicate")
+        raise Exception("result did not contain either subject, object or predicate")
+
+    if ("bindings" not in results["results"] or
+        not results["results"]["bindings"][0].get("subject") or
+        not results["results"]["bindings"][0].get("predicate") or
+        not results["results"]["bindings"][0].get("object")):
+        logging.info("result needs to contain atleast one element")
+        raise Exception("result needs to contain atleast one element")
+
     # Construct the desired JSON structure
     formattedTriples = formatTripleObject(results)
 
@@ -67,8 +102,12 @@ def GetTriples():
     logging.info(keywords)
     triples = []
 
+    #Checks if the keyword given is of type string, instead of array, and add the string to the array
+    if (isinstance(keywords, str)):
+        keywords = [keywords]
+
     for entity in keywords:
-        identifier_value = get_qnumber(wikiarticle=entity, wikisite="enwiki")
+        identifier_value = get_qnumber(entity)
         if identifier_value == "-1":
             #add fejlmeddelse til flask..
             continue
@@ -92,8 +131,9 @@ def GetTriples():
                  BIND (?sLabel AS ?subject)
                  }} 
                 ORDER BY xsd:integer(STRAFTER(STR(?wd), "http://www.wikidata.org/entity/P"))
-                LIMIT 10
+                LIMIT 5
                 """
+        logging.info(query)
         result = call_wikidata_API(query)
 
         logging.info(result)

@@ -27,13 +27,16 @@ jobs:
          pip install -U pip setuptools wheel
          pip install -U spacy
          python -m spacy download da_core_news_md
+         pip install SPARQLWrapper
+         pip install jsonschema
+         pip install requests
      - name: Run PyTest
        uses: pavelzw/pytest-action@v2.2.0
        with:
          verbose: false
          emoji: false
          job-summary: false
-         custom-arguments: '-q spaCy'
+         custom-arguments: '-q spaCy API_Connections'
          click-to-expand: false
          report-title: 'Test Report'
 
