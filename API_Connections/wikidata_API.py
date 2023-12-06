@@ -1,4 +1,4 @@
-# Goal of this file, is to call the wikidata API, given a set of partial triples, which define the subject, object and predicate of a user prompt.
+# Goal of this file, is to call the wikidata API, which returns a set of partial triples, which define the subject, object and predicate of the entities in a user prompt
 
 from flask import Flask, request, jsonify
 from SPARQLWrapper import SPARQLWrapper, JSON

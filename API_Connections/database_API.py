@@ -1,4 +1,4 @@
-# Purpose of this file is to setup an API, which returns the entities of a given user input
+# Purpose of this file is to setup an API, which returns a set of partial triples from the KNOX database
 from flask import Flask, request, jsonify
 import logging
 import requests
