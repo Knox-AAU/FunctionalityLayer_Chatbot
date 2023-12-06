@@ -13,22 +13,22 @@ def client():
 
 
 # Use this to add more tests
-@pytest.mark.parametrize("keywords, hasTriples", [
+@pytest.mark.parametrize("keywords, has_triples", [
     ("Aalborg", True),
     ("dfghjkl", False),
     ("Barack Obama", True),
     ("asdfghjk", False)
 ])
-def test_get_triples_recieving_triples(client, keywords, hasTriples):
+def test_get_triples_recieving_triples(client, keywords, has_triples):
     # Simulate a POST request to the endpoint
-    response = client.post('/GetTriples', json={'keywords': keywords})
+    response = client.post('/get_triples', json={'keywords': keywords})
     response_json = response.get_json()
     # Check that the response status code is 200 (OK)
     assert response.status_code == 200
     # Check that the json response contains a key 'triple'
     assert response_json.get('triples') is not None
     # Check that the response contains any or no triples based on input
-    assert hasTriples == (len(response_json['triples']) != 0)
+    assert has_triples == (len(response_json['triples']) != 0)
 
 
 # Use this to add more tests
@@ -43,7 +43,7 @@ def test_get_wikidata_id_recieves_correct_ID(wikipage, expected_qnumber):
 
 
 # Use this to add more tests
-@pytest.mark.parametrize("query, exceptionMessage", [
+@pytest.mark.parametrize("query, exception_message", [
     ("""  SELECT ?item ?itemLabel 
          WHERE 
          {
@@ -58,14 +58,14 @@ def test_get_wikidata_id_recieves_correct_ID(wikipage, expected_qnumber):
          }""", "result needs to contain atleast one element"),
     ("qwertyuip", "Bad Query")
 ])
-def test_get_triples_from_wikidata_produces_exceptions(query, exceptionMessage):
-    with pytest.raises(Exception) as exectionInfo:
+def test_get_triples_from_wikidata_produces_exceptions(query, exception_message):
+    with pytest.raises(Exception) as exection_info:
         assert wikidata_API.get_triples_from_wikidata(query)
-    assert str(exectionInfo.value) == exceptionMessage
+    assert str(exection_info.value) == exception_message
 
 
 # Use this to add more tests
-@pytest.mark.parametrize("jsonObject, exceptionMessage", [
+@pytest.mark.parametrize("json_object, exception_message", [
     ("qwerty", "Invalid JSON format. Expected 'results' with 'bindings'"),
     ({
          "results": {
@@ -84,7 +84,7 @@ def test_get_triples_from_wikidata_produces_exceptions(query, exceptionMessage):
          }
      }, "Invalid JSON format. Expected 'subject', 'predicate', and 'object' in each binding")
 ])
-def test_format_triples_object_produces_exceptions(jsonObject, exceptionMessage):
-    with pytest.raises(Exception) as exectionInfo:
-        assert wikidata_API.format_triple_object(jsonObject)
-    assert str(exectionInfo.value) == exceptionMessage
+def test_format_triples_object_produces_exceptions(json_object, exception_message):
+    with pytest.raises(Exception) as exection_info:
+        assert wikidata_API.format_triple_object(json_object)
+    assert str(exection_info.value) == exception_message

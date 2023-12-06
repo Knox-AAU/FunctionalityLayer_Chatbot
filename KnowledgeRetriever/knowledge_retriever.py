@@ -29,6 +29,21 @@ def get_extracted_entities(input_string):
         logging.info(f'Request failed with status code {response.status_code}')
         return None
 
+def get_response_substring(input):
+    # Extract the 'choices' list from the input
+    choices = input['choices']
+
+    # Get the 'text' value from the first choice in the list
+    llama_string = choices[0]['text']
+
+    # Split the string at the "[/INST]" substring, keeping at most 1 split
+    response = llama_string.split("[/INST]", 1)
+
+    # Select the second item in the list, which is the part after the split
+    result = response[1]
+
+    # Return the extracted substring
+    return result
 
 def get_response_in_natural_language(user_prompt, system_prompt, triples, tokens):
     # Define the URL of the llama api
@@ -88,14 +103,14 @@ def knowledge_retriever():
     keywords = get_extracted_entities(user_prompt)
     triples = get_triples(keywords)
 
-    natural_language_response = None
     #logging.info(f'RunLlama: {request.json["run_llama"]}, hasattr: {hasattr(request.json, "run_llama")}')
     if 'run_llama' not in request.json or request.json['run_llama'] is True:
-        natural_language_response = get_response_in_natural_language(user_prompt, 'Based on this prompt, give me an answer', triples, 1000)
+        json_response = get_response_in_natural_language(user_prompt, 'Based on this prompt, give me an answer', triples, 1000)
+        natural_language_response = get_response_substring(json_response)
+        return natural_language_response
     else:
         return jsonify({'Llama error': 'Llama function was not executed', 'Knowledge Graph output': triples})
 
-    return natural_language_response
 
 
 # Run the Flask app.

@@ -28,17 +28,17 @@ def get_wikidata_id(wikipage):
 
 def format_triple_object(triples):
     # Check if the expected structure is present in the JSON
-    if "triples" not in triples or "bindings" not in triples["triples"]:
-        raise ValueError("Invalid JSON format. Expected 'triples' with 'bindings'")
+    if "results" not in triples or "bindings" not in triples["results"]:
+        raise ValueError("Invalid JSON format. Expected 'results' with 'bindings'")
 
-    for triple in triples["triples"]["bindings"]:
+    for triple in triples["results"]["bindings"]:
         # Assuming subject, predicate, and object are always present in each triple
         if "subject" not in triple or "predicate" not in triple or "object" not in triple:
             raise ValueError("Invalid JSON format. Expected 'subject', 'predicate', and 'object' in each binding")
 
     json_triples = []
 
-    for triple in triples["triples"]["bindings"]:
+    for triple in triples["results"]["bindings"]:
         formatted_triple = {
             "s": {
                 "Type": type(triple["subject"]["value"]).__name__,
@@ -60,7 +60,7 @@ def format_triple_object(triples):
 
 def get_triples_from_wikidata(query):
     # Set up the SPARQL endpoint URL
-    wikidata_sparql_endpoint = SPARQLWrapper("https://query.wikidata.org/wikidata_sparql_endpoint")
+    wikidata_sparql_endpoint = SPARQLWrapper("https://query.wikidata.org/sparql")
 
     # Set the query string and return format
     wikidata_sparql_endpoint.setQuery(query)
@@ -83,10 +83,10 @@ def get_triples_from_wikidata(query):
         raise Exception("triple did not contain either subject, object or predicate")
 
     # check if the triples contain atleast one subject, object and predicate
-    if ("bindings" not in triples["triples"] or
-            not triples["triples"]["bindings"][0].get("subject") or
-            not triples["triples"]["bindings"][0].get("predicate") or
-            not triples["triples"]["bindings"][0].get("object")):
+    if ("bindings" not in triples["results"] or
+            not triples["results"]["bindings"][0].get("subject") or
+            not triples["results"]["bindings"][0].get("predicate") or
+            not triples["results"]["bindings"][0].get("object")):
         logging.info("triple needs to contain atleast one element")
         raise Exception("triple needs to contain atleast one element")
 
