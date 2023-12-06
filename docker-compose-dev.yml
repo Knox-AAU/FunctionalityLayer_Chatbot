@@ -32,6 +32,7 @@ services:
     links:
       - spacy
       - api_connect
+      - llama
     volumes:
       - ./KnowledgeRetriever:/knowledge_retriever
   api_connect:
