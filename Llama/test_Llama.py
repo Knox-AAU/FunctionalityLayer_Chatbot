@@ -24,7 +24,7 @@ def test_llama(client, system_message, user_message, max_tokens):
     assert response_json is not None
     assert response.status_code == 200
 
-
+# Testing for a failed request
 def test_llama_fail(client):
     longvar = "test " * 1000
     response = client.post('/llama', json={'system_message': longvar, 'user_message': longvar,
@@ -33,7 +33,7 @@ def test_llama_fail(client):
     assert response_json is not None
     assert response.status_code == 500
 
-
+# Testing for when the input for llama is empty
 def test_empty_llama_input(client):
     response = client.post('/llama', json={'system_message': "", 'user_message': "",
                                            'max_tokens': 100})
@@ -41,6 +41,7 @@ def test_empty_llama_input(client):
     assert response_json is not None
     assert response.status_code == 200
 
+# Testing for when there was no user prompt given as input to llama
 def test_no_user_message_llama_input(client):
     response = client.post('/llama', json={'max_tokens': 100})
     response_json = response.get_json()

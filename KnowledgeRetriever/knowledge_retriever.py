@@ -77,6 +77,8 @@ def get_api_data(keywords):
         logging.info(f'Request failed with status code {response.status_code}')
         return None
 
+# The following 5 functions are placeholder code, for potential structural improvements in the code
+# Currently NOT implemented 
 
 def promptUser():
     print("What would you like to ask the chatbot?")
@@ -111,14 +113,10 @@ def getChatbotResponse(processedData):
     return response
 
 
-"""flag = True
-while flag:"""
-
-
 # Get input from the user
 # userInput = promptUser()
 
-# Define a route for the API. This will be the endpoint for the function.
+# Define a route for the main Knowledge retriever API. This will be the endpoint for the function.
 @krEndpoint.route('/knowledge_retriever', methods=['POST'])
 def knowledge_retriever():
     # Get the input string from the JSON body of the request.
@@ -132,6 +130,7 @@ def knowledge_retriever():
     if 'run_llama' not in request.json or request.json['run_llama'] is True:
         llama_response = call_llama(userinput, 'Based on this prompt, give me an answer', knowledgeGraphData, 1000)
 
+    # Error handling
     if llama_response is None:
         logging.info('Llama output empty')
         return jsonify({'Llama error': 'Llama function failed or was not executed', 'Knowledge Graph output': knowledgeGraphData})
@@ -142,12 +141,6 @@ def knowledge_retriever():
 # Run the Flask app.
 if __name__ == '__main__':
     krEndpoint.run(host='0.0.0.0', port=5001)
-
-"""repeat = "flag"
-while repeat != "y" and repeat != "n":
-    repeat = input("Har du lyst til at spørge om noget nyt? (y/n)")
-if repeat == "n":
-    flag = False"""
 
 # Placeholder code for further processing and response generation
 # processedKeywords = processKeywords(keywords)
