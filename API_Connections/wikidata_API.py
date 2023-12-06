@@ -5,99 +5,101 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 from requests import get
 import logging
 
-wikidataEndpoint = Flask(__name__)
+wikidata_endpoint = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 WIKISITE = "enwiki"
 
 
 # Get wikidata Q-number for all entities.
-def get_qnumber(wikipage):
-    resp = get('https://www.wikidata.org/w/api.php', {
+def get_wikidata_id(wikipage):
+    wikidata_ids = get('https://www.wikidata.org/w/api.php', {
         'action': 'wbgetentities',
         'titles': wikipage,
         'sites': WIKISITE,
         'props': '',
         'format': 'json'
     }).json()
-    logging.info(resp)
-    logging.info(list(resp['entities'])[0])
+    logging.info(wikidata_ids)
+    logging.info(list(wikidata_ids['entities'])[0])
 
-    return list(resp['entities'])[0]
+    return list(wikidata_ids['entities'])[0]
 
 
-def formatTripleObject(results):
+def format_triple_object(triples):
     # Check if the expected structure is present in the JSON
-    if "results" not in results or "bindings" not in results["results"]:
-        raise ValueError("Invalid JSON format. Expected 'results' with 'bindings'")
+    if "triples" not in triples or "bindings" not in triples["triples"]:
+        raise ValueError("Invalid JSON format. Expected 'triples' with 'bindings'")
 
-    for result in results["results"]["bindings"]:
-        # Assuming subject, predicate, and object are always present in each result
-        if "subject" not in result or "predicate" not in result or "object" not in result:
+    for triple in triples["triples"]["bindings"]:
+        # Assuming subject, predicate, and object are always present in each triple
+        if "subject" not in triple or "predicate" not in triple or "object" not in triple:
             raise ValueError("Invalid JSON format. Expected 'subject', 'predicate', and 'object' in each binding")
 
-    json_results = []
+    json_triples = []
 
-    for result in results["results"]["bindings"]:
-        triple = {
+    for triple in triples["triples"]["bindings"]:
+        formatted_triple = {
             "s": {
-                "Type": type(result["subject"]["value"]).__name__,
-                "Value": result["subject"]["value"]
+                "Type": type(triple["subject"]["value"]).__name__,
+                "Value": triple["subject"]["value"]
             },
             "p": {
-                "Type": type(result["subject"]["value"]).__name__,
-                "Value": result["predicate"]["value"]
+                "Type": type(triple["subject"]["value"]).__name__,
+                "Value": triple["predicate"]["value"]
             },
             "o": {
-                "Type": type(result["subject"]["value"]).__name__,
-                "Value": result["object"]["value"]
+                "Type": type(triple["subject"]["value"]).__name__,
+                "Value": triple["object"]["value"]
             }
         }
-        json_results.append(triple)
-    return json_results
+        json_triples.append(formatted_triple)
+
+    return json_triples
 
 
-def call_wikidata_API(query):
+def get_triples_from_wikidata(query):
     # Set up the SPARQL endpoint URL
-    sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
+    wikidata_sparql_endpoint = SPARQLWrapper("https://query.wikidata.org/wikidata_sparql_endpoint")
 
     # Set the query string and return format
-    sparql.setQuery(query)
-    sparql.setReturnFormat(JSON)
+    wikidata_sparql_endpoint.setQuery(query)
+    wikidata_sparql_endpoint.setReturnFormat(JSON)
 
-    # Execute the query and get the results
+    # Execute the query and get the triples
     try:
-        results = sparql.query().convert()
+        triples = wikidata_sparql_endpoint.query().convert()
     except Exception as error:
         raise Exception("Bad Query")
 
-    logging.info(results)
-    logging.info(results["head"]["vars"])
+    logging.info(triples)
+    logging.info(triples["head"]["vars"])
 
-    # check if the results contain subject, object and predicate keywords
-    if ("subject" not in results["head"]["vars"] or
-            "predicate" not in results["head"]["vars"] or
-            "object" not in results["head"]["vars"]):
-        logging.info("result did not contain either subject, object or predicate")
-        raise Exception("result did not contain either subject, object or predicate")
+    # check if the triples contain subject, object and predicate keywords
+    if ("subject" not in triples["head"]["vars"] or
+            "predicate" not in triples["head"]["vars"] or
+            "object" not in triples["head"]["vars"]):
+        logging.info("triple did not contain either subject, object or predicate")
+        raise Exception("triple did not contain either subject, object or predicate")
 
-    if ("bindings" not in results["results"] or
-            not results["results"]["bindings"][0].get("subject") or
-            not results["results"]["bindings"][0].get("predicate") or
-            not results["results"]["bindings"][0].get("object")):
-        logging.info("result needs to contain atleast one element")
-        raise Exception("result needs to contain atleast one element")
+    # check if the triples contain atleast one subject, object and predicate
+    if ("bindings" not in triples["triples"] or
+            not triples["triples"]["bindings"][0].get("subject") or
+            not triples["triples"]["bindings"][0].get("predicate") or
+            not triples["triples"]["bindings"][0].get("object")):
+        logging.info("triple needs to contain atleast one element")
+        raise Exception("triple needs to contain atleast one element")
 
     # Construct the desired JSON structure
-    formattedTriples = formatTripleObject(results)
+    formatted_triples = format_triple_object(triples)
 
     # return json object
-    return formattedTriples
+    return formatted_triples
 
 
-@wikidataEndpoint.route('/GetTriples', methods=['POST'])
-def GetTriples():
-    logging.info("GetTriples was called")
+@wikidata_endpoint.route('/get_triples', methods=['POST'])
+def get_triples():
+    logging.info("get_triples was called")
     keywords = request.json['keywords']
     logging.info(request.json)
     logging.info(keywords)
@@ -108,7 +110,7 @@ def GetTriples():
         keywords = [keywords]
 
     for entity in keywords:
-        identifier_value = get_qnumber(entity)
+        identifier_value = get_wikidata_id(entity) #get wikidata ID (needed for querying that speicifc keyword)
         if identifier_value == "-1":
             # add fejlmeddelse til flask..
             continue
@@ -135,10 +137,10 @@ def GetTriples():
                 LIMIT 5
                 """
         logging.info(query)
-        result = call_wikidata_API(query)
+        triple = get_triples_from_wikidata(query)
 
-        logging.info(result)
-        triples.extend(result)
+        logging.info(triple)
+        triples.extend(triple)
 
     merged_triples = {
         "triples": triples
@@ -147,4 +149,4 @@ def GetTriples():
 
 
 if __name__ == '__main__':
-    wikidataEndpoint.run(host='0.0.0.0', port=5002)
+    wikidata_endpoint.run(host='0.0.0.0', port=5002)

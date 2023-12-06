@@ -2,13 +2,13 @@ import pytest
 import json
 from flask import jsonify
 import wikidata_API
-from wikidata_API import wikidataEndpoint
+from wikidata_API import wikidata_endpoint
 
 
-@pytest.fixture  # Create fixture of wikidataEndpoint. It will create an instance of the wikidata_API flask app and configure it for testing
+@pytest.fixture  # Create fixture of wikidata_endpoint. It will create an instance of the wikidata_API flask app and configure it for testing
 def client():
-    wikidataEndpoint.config['TESTING'] = True
-    with wikidataEndpoint.test_client() as client:
+    wikidata_endpoint.config['TESTING'] = True
+    with wikidata_endpoint.test_client() as client:
         yield client
 
 
@@ -19,7 +19,7 @@ def client():
     ("Barack Obama", True),
     ("asdfghjk", False)
 ])
-def test_GetTriples_recieving_triples(client, keywords, hasTriples):
+def test_get_triples_recieving_triples(client, keywords, hasTriples):
     # Simulate a POST request to the endpoint
     response = client.post('/GetTriples', json={'keywords': keywords})
     response_json = response.get_json()
@@ -38,8 +38,8 @@ def test_GetTriples_recieving_triples(client, keywords, hasTriples):
     ("Barack Obama", "Q76"),
     ("asdfghjk", "-1")
 ])
-def test_getQnumber_recieves_correct_ID(wikipage, expected_qnumber):
-    assert wikidata_API.get_qnumber(wikipage) == expected_qnumber
+def test_get_wikidata_id_recieves_correct_ID(wikipage, expected_qnumber):
+    assert wikidata_API.get_wikidata_id(wikipage) == expected_qnumber
 
 
 # Use this to add more tests
@@ -58,9 +58,9 @@ def test_getQnumber_recieves_correct_ID(wikipage, expected_qnumber):
          }""", "result needs to contain atleast one element"),
     ("qwertyuip", "Bad Query")
 ])
-def test_wikidataAPI_produces_exceptions(query, exceptionMessage):
+def test_get_triples_from_wikidata_produces_exceptions(query, exceptionMessage):
     with pytest.raises(Exception) as exectionInfo:
-        assert wikidata_API.call_wikidata_API(query)
+        assert wikidata_API.get_triples_from_wikidata(query)
     assert str(exectionInfo.value) == exceptionMessage
 
 
@@ -84,7 +84,7 @@ def test_wikidataAPI_produces_exceptions(query, exceptionMessage):
          }
      }, "Invalid JSON format. Expected 'subject', 'predicate', and 'object' in each binding")
 ])
-def test_formatTriples_produces_exceptions(jsonObject, exceptionMessage):
+def test_format_triples_object_produces_exceptions(jsonObject, exceptionMessage):
     with pytest.raises(Exception) as exectionInfo:
-        assert wikidata_API.formatTripleObject(jsonObject)
+        assert wikidata_API.format_triple_object(jsonObject)
     assert str(exectionInfo.value) == exceptionMessage

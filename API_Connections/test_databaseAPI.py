@@ -1,10 +1,10 @@
 import pytest
-from database_API import KnoxDatabaseEndpoint
+from database_API import knox_database_endpoint
 
 @pytest.fixture # Create fixture of KnoxDatabaseEndpoint. It will create an instance of the database_API flask app and configure it for testing
 def client():
-   KnoxDatabaseEndpoint.config['TESTING'] = True
-   with KnoxDatabaseEndpoint.test_client() as client:
+   knox_database_endpoint.config['TESTING'] = True
+   with knox_database_endpoint.test_client() as client:
        yield client
 
 #def test_databaseAPI(client, input_string, expected_entities):

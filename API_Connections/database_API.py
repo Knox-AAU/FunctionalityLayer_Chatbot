@@ -2,57 +2,62 @@
 from flask import Flask, request, jsonify
 import logging
 import requests
-#keywords = ["Aalborg", "Berlin"]
-url = "http://130.225.57.13/knox-api/triples?g=http://knox_database"
 
-KnoxDatabaseEndpoint = Flask(__name__)
+knox_endpoint_url = "http://130.225.57.13/knox-api/triples?g=http://knox_database"
+
+knox_database_endpoint = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 
-def add_url_query(keyword, type):
-    if (not(type == "subject" or type == "object")):
-        raise Exception("type has to be subject or object.")
+def get_endpoint_url(keyword, query_type):
+    # Raise and exception if query_type is neither "subject" or "object"
+    if (not(query_type == "subject" or query_type == "object")):
+        raise Exception("query_type has to be subject or object.")
 
-    if type == "subject":
-        print(url + "&s=" + keyword)
-        return url + "&s=" + keyword
-
-    elif type == "object":
-        print(url + "&o=" + keyword)
-        return url + "&o=" + keyword
+    if query_type == "subject":
+        return knox_endpoint_url + "&s=" + keyword
+    elif query_type == "object":
+        return knox_endpoint_url + "&o=" + keyword
 
 # Returns the entities extracted in a partial triple consisting of Subject and Object the user input.
-@KnoxDatabaseEndpoint.route('/GetTriples', methods=['POST'])
+@knox_database_endpoint.route('/GetTriples', methods=['POST'])
 def GetTriples():
+    
     logging.info("GetTriples was called")
+
     keywords = request.json['keywords']
+
     logging.info(request.json)
     logging.info(keywords)
+
     triples = []
-    for entity in keywords:
+
+    for keyword in keywords:
         header={"Access-Authorization":"internal_key"}
 
-        # Add each entity add as subject and object
-        subURL = add_url_query(entity, "subject")
-        objURL = add_url_query(entity, "object")
+        # Add each keyword as subject and object
+        subject_endpoint_url = get_endpoint_url(keyword, "subject")
+        object_endpoint_url = get_endpoint_url(keyword, "object")
 
-        subjectResponse = requests.get(subURL,headers=header)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
-        objectResponse = requests.get(objURL,headers=header)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
+        subject_response = requests.get(subject_endpoint_url, headers=header)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
+        object_response = requests.get(object_endpoint_url, headers=header)  # only works if you are connected to KNOXserver: ssh <studiemail>@knox-kb01.srv.aau.dk -L 8000:localhost:8081.
 
-        if subjectResponse.status_code >= 500 or objectResponse.status_code >= 500:
+        if subject_response.status_code >= 500 or object_response.status_code >= 500:
             raise Exception("Serverside Error")
 
-        elif subjectResponse.status_code == 400 or objectResponse.status_code == 400:
+        elif subject_response.status_code == 400 or object_response.status_code == 400:
             raise Exception("Bad request") #Often the database group that have changed something on the endpoint.
 
-        logging.info(subjectResponse.status_code)
-        logging.info(objectResponse.status_code)
-        triples.extend(subjectResponse.json()["triples"])
-        triples.extend(objectResponse.json()["triples"])
+        logging.info(subject_response.status_code)
+        logging.info(object_response.status_code)
+
+        triples.extend(subject_response.json()["triples"])
+        triples.extend(object_response.json()["triples"])
+
         logging.info(triples)
 
     merged_triples = {"triples": triples}
     return jsonify(merged_triples)
 
 if __name__ == '__main__':
-   KnoxDatabaseEndpoint.run(host='0.0.0.0', port=5002)
+   knox_database_endpoint.run(host='0.0.0.0', port=5002)
