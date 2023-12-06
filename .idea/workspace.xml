@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llama/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_Connections/test_wikidataAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/test_wikidataAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_Connections/wikidata_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/wikidata_API.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +221,7 @@
       <workItem from="1701433432229" duration="3613000" />
       <workItem from="1701691651386" duration="1533000" />
       <workItem from="1701693455163" duration="15959000" />
-      <workItem from="1701779190915" duration="3053000" />
+      <workItem from="1701779190915" duration="4255000" />
     </task>
     <servers />
   </component>
