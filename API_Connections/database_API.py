@@ -1,3 +1,4 @@
+# Purpose of this file is to setup an API, which returns a set of partial triples from the KNOX database
 from flask import Flask, request, jsonify
 import logging
 import requests
@@ -20,6 +21,7 @@ def add_url_query(keyword, type):
         print(url + "&o=" + keyword)
         return url + "&o=" + keyword
 
+# Returns the entities extracted in a partial triple consisting of Subject and Object the user input.
 @KnoxDatabaseEndpoint.route('/GetTriples', methods=['POST'])
 def GetTriples():
     logging.info("GetTriples was called")

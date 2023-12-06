@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import spacy
 import logging
 
+# Initialize danish spaCy mode, and Flask library
 spacyEndpoint = Flask(__name__)
 nlp = spacy.load('da_core_news_md')
 logging.basicConfig(level=logging.INFO)

@@ -22,6 +22,7 @@ services:
     links:
       - spacy
       - api_connect
+      - llama
   api_connect:
     # Build the Docker image for the app service using the Dockerfile in the ./API_Connections directory.
     image: eshes/knox-group-g:Master_ApiConnect
