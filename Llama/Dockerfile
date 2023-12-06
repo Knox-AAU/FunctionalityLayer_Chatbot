@@ -6,7 +6,7 @@ WORKDIR /llama
 
 # Copy the current directory contents into the container at /llama
 COPY ./llama_cpu_server.py /llama/llama_cpu_server.py
-COPY ./Llama2.gguf* /llama/LLama2.gguf
+COPY ./Llama2.gguf* /llama/Llama2.gguf
 
 # Install the needed packages
 RUN pip install llama-cpp-python

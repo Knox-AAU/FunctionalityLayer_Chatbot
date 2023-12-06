@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-pr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/docker-push-main-pylint.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" beforeDir="false" afterPath="$PROJECT_DIR$/KnowledgeRetriever/knowledge_retriever.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llama/Dockerfile.tests" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llama/test_Llama.py" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/test_Llama.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Llama/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +220,8 @@
       <workItem from="1701160971563" duration="9489000" />
       <workItem from="1701433432229" duration="3613000" />
       <workItem from="1701691651386" duration="1533000" />
-      <workItem from="1701693455163" duration="10935000" />
+      <workItem from="1701693455163" duration="15959000" />
+      <workItem from="1701779190915" duration="3053000" />
     </task>
     <servers />
   </component>
