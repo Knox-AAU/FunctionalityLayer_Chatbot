@@ -31,7 +31,7 @@ def generate_response():
                 model_path = "Llama2.gguf"
 
                 # Create the model
-                model = Llama(model_path=model_path)
+                model = Llama(model_path=model_path, n_ctx=4096)
 
             # Run the model
             output = model(prompt, max_tokens=max_tokens, echo=True)
