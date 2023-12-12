@@ -49,13 +49,13 @@ def test_get_wikidata_id_recieves_correct_ID(wikipage, expected_qnumber):
          {
          ?item wdt:P31 wd:Q146.
          SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
-         }""", "result did not contain either subject, object or predicate"),
+         }""", "triple did not contain either subject, object or predicate"),
     ("""  SELECT ?subject ?object ?predicate
          WHERE 
          {
          ?item wdt:P31 wd:Q146.
          SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
-         }""", "result needs to contain atleast one element"),
+         }""", "triple needs to contain atleast one element"),
     ("qwertyuip", "Bad Query")
 ])
 def test_get_triples_from_wikidata_produces_exceptions(query, exception_message):
