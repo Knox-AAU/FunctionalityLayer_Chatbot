@@ -134,7 +134,7 @@ def get_triples():
                  BIND (?sLabel AS ?subject)
                  }} 
                 ORDER BY xsd:integer(STRAFTER(STR(?wd), "http://www.wikidata.org/entity/P"))
-                LIMIT 5
+                LIMIT 10
                 """
         logging.info(query)
         triple = get_triples_from_wikidata(query)
