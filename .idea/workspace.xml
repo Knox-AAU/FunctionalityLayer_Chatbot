@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b027c156-c1e4-4572-9e87-92a958f762c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_Connections/wikidata_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_Connections/wikidata_API.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llama/llama_cpu_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Llama/llama_cpu_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "N__CTX",
+    "git-widget-placeholder": "PostmanCollections",
     "last_opened_file_path": "/Users/thomasbjeldbak/Documents/Documents - Thomas’s MacBook Pro/P5/FunctionalityLayer_Chatbot",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,7 +82,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.9" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/API_Connections" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -129,7 +126,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.9" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/API_Connections" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -193,13 +189,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.KnowledgeRetriever/Dockerfile" />
       <item itemvalue="Python.database_API" />
-      <item itemvalue="Python.wikidata_API" />
       <item itemvalue="Python.knowledge_retriever" />
-      <item itemvalue="Python tests.Python tests in test_Llama.py" />
+      <item itemvalue="Python.wikidata_API" />
+      <item itemvalue="Docker.KnowledgeRetriever/Dockerfile" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Python tests.Python tests for spaCy.tests.spaCyTests.spacyTest.test_correct_output" />
+      <item itemvalue="Python tests.Python tests in test_Llama.py" />
     </list>
     <recent_temporary>
       <list>

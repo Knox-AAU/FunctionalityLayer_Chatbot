@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "cbcd3c99-279a-484a-adc8-ef9e7d893830",
+		"name": "03. ExternalAPI",
+		"description": "Must be connected via ssh:\n\nssh [studentId@student.aau.dk](https://mailto:tian21@student.aau.dk)@knox-kb01.srv.aau.dk -L 8000:localhost:80",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31034073",
+		"_collection_link": "https://knoxchatbot.postman.co/workspace/KnoxChatbot~afdc4487-9fbe-4a2d-804b-f382733daf7d/collection/31034073-cbcd3c99-279a-484a-adc8-ef9e7d893830?action=share&source=collection_link&creator=31034073"
+	},
+	"item": [
+		{
+			"name": "CallAPIDefault (After changes)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-authorization",
+						"value": "{{access-authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://130.225.57.13/knox-api/triples?g=http://knox_database",
+					"protocol": "http",
+					"host": [
+						"130",
+						"225",
+						"57",
+						"13"
+					],
+					"path": [
+						"knox-api",
+						"triples"
+					],
+					"query": [
+						{
+							"key": "g",
+							"value": "http://knox_database"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CallAPIDefault Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access-authorization",
+								"value": "internal_key",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://130.225.57.13/knox-api/triples?g=http://knox_database",
+							"protocol": "http",
+							"host": [
+								"130",
+								"225",
+								"57",
+								"13"
+							],
+							"path": [
+								"knox-api",
+								"triples"
+							],
+							"query": [
+								{
+									"key": "g",
+									"value": "http://knox_database"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1554"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Nov 2023 09:17:31 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2023\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2024\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2025\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test9\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test1\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test2\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Barack_Obama\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"raceTrack\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Michelle_Obama\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Barrack_Obama\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"ist\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Michelle_Obama\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"last_week\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Martin_Kjær\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Region_North_Jutland\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Martin_Kjær\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Martin_Kjær\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Region_North_Jutland\"\n            }\n        }\n    ],\n    \"query\": \"SELECT ?s ?p ?o WHERE { GRAPH <http://knox_database> { ?s ?p ?o }}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "(Deprecated) CallAPIDefault",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/triples?g=http://knox_database",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"triples"
+					],
+					"query": [
+						{
+							"key": "g",
+							"value": "http://knox_database"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "WorkingAPICall",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/triples?g=http://knox_database",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"triples"
+							],
+							"query": [
+								{
+									"key": "g",
+									"value": "http://knox_database"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 09:12:54 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1341"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2023\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2024\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2025\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test1\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test2\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Barack_Obama\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"raceTrack\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Michelle_Obama\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Barrack_Obama\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"ist\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Michelle_Obama\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"last_week\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Martin_Kjær\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Region_North_Jutland\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Martin_Kjær\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Martin_Kjær\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Region_North_Jutland\"\n            }\n        }\n    ],\n    \"query\": \"SELECT ?s ?p ?o WHERE { GRAPH <http://knox_database> { ?s ?p ?o }}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "(Deprecated) CallAPIFromFunc01",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.38.54.90/triples?g=http://knox_database&o=2025",
+					"protocol": "http",
+					"host": [
+						"192",
+						"38",
+						"54",
+						"90"
+					],
+					"path": [
+						"triples"
+					],
+					"query": [
+						{
+							"key": "g",
+							"value": "http://knox_database"
+						},
+						{
+							"key": "o",
+							"value": "2025"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "WorkingCallDefault",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.38.54.90/triples?g=http://knox_database",
+							"protocol": "http",
+							"host": [
+								"192",
+								"38",
+								"54",
+								"90"
+							],
+							"path": [
+								"triples"
+							],
+							"query": [
+								{
+									"key": "g",
+									"value": "http://knox_database"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 09:26:25 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1341"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2023\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2024\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2025\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test1\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Test2\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"World\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Barack_Obama\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"raceTrack\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Michelle_Obama\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Barrack_Obama\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"ist\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Michelle_Obama\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"last_week\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"Martin_Kjær\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Region_North_Jutland\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Martin_Kjær\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Martin_Kjær\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"board\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"knox-kb01.srv.aau.dk/Region_North_Jutland\"\n            }\n        }\n    ],\n    \"query\": \"SELECT ?s ?p ?o WHERE { GRAPH <http://knox_database> { ?s ?p ?o }}\"\n}"
+				},
+				{
+					"name": "CallwithHello",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.38.54.90/triples?g=http://knox_database&s=hello",
+							"protocol": "http",
+							"host": [
+								"192",
+								"38",
+								"54",
+								"90"
+							],
+							"path": [
+								"triples"
+							],
+							"query": [
+								{
+									"key": "g",
+									"value": "http://knox_database"
+								},
+								{
+									"key": "s",
+									"value": "hello"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 09:26:55 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "460"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2023\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2024\"\n            }\n        },\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2025\"\n            }\n        }\n    ],\n    \"query\": \"SELECT ?s ?p ?o WHERE { GRAPH <http://knox_database> { ?s ?p ?o . FILTER ((contains(str(?s), 'hello'))) . }}\"\n}"
+				},
+				{
+					"name": "o=2025",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.38.54.90/triples?g=http://knox_database&o=2025",
+							"protocol": "http",
+							"host": [
+								"192",
+								"38",
+								"54",
+								"90"
+							],
+							"path": [
+								"triples"
+							],
+							"query": [
+								{
+									"key": "g",
+									"value": "http://knox_database"
+								},
+								{
+									"key": "o",
+									"value": "2025"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 09:28:14 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "247"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"s\": {\n                \"Type\": \"uri\",\n                \"Value\": \"hello\"\n            },\n            \"p\": {\n                \"Type\": \"uri\",\n                \"Value\": \"world\"\n            },\n            \"o\": {\n                \"Type\": \"uri\",\n                \"Value\": \"2025\"\n            }\n        }\n    ],\n    \"query\": \"SELECT ?s ?p ?o WHERE { GRAPH <http://knox_database> { ?s ?p ?o . FILTER ((contains(str(?o), '2025'))) . }}\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

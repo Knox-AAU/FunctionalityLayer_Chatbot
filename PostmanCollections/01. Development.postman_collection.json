@@ -1,0 +1,537 @@
+{
+	"info": {
+		"_postman_id": "568c11d6-924b-4445-aab5-2a3da1e32487",
+		"name": "01. Development",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31034073",
+		"_collection_link": "https://knoxchatbot.postman.co/workspace/KnoxChatbot~afdc4487-9fbe-4a2d-804b-f382733daf7d/collection/31034073-568c11d6-924b-4445-aab5-2a3da1e32487?action=share&source=collection_link&creator=31034073"
+	},
+	"item": [
+		{
+			"name": "RunKR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input_string\": \"Hvor ligger Aalborg?\",\r\n    \"run_llama\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/knowledge_retriever",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"knowledge_retriever"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "RunKRWithSpaCy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er Obama?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "10"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.10.13"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Nov 2023 12:21:11 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Obama\"\n]"
+				},
+				{
+					"name": "RunKRMultipleEntities",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er Obama og Trump?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "18"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Nov 2023 08:52:29 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Obama\",\n    \"Trump\"\n]"
+				},
+				{
+					"name": "Hvor ligger Aalborg?",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvor ligger Aalborg?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1924"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Nov 2023 12:56:43 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"length\",\n            \"index\": 0,\n            \"logprobs\": null,\n            \"text\": \"<s>[INST] <<SYS>>\\n            Based on this prompt, give me an answer {'triples': [{'o': {'Type': 'str', 'Value': 'Thomas Kastrup-Larsen'}, 'p': {'Type': 'str', 'Value': 'head of government'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'Denmark'}, 'p': {'Type': 'str', 'Value': 'country'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'Aalborg Municipality'}, 'p': {'Type': 'str', 'Value': 'located in the administrative territorial entity'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'UTC+01:00'}, 'p': {'Type': 'str', 'Value': 'located in time zone'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'UTC+02:00'}, 'p': {'Type': 'str', 'Value': 'located in time zone'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}]}\\n            <</SYS>>\\n            Hvor ligger Aalborg? [/INST]  Based on the provided triples, we can determine that Aalborg is located in Denmark. Specifically, it is located in the administrative territorial entity of Aalborg Municipality, which is situated in the time zone UTC+01:00 and UTC+02:00.\\nHere are the triples that indicate this:\\n* 'o': {'Type': 'str', 'Value': 'Denmark'} - This triple indicates that the entity mentioned in the prompt is located in Denmark.\\n* 'p': {'Type': 'str', 'Value': 'country'} - This triple indicates that the entity mentioned in the prompt is a country, which means it is located in a specific geographic location.\\n* 's': {'Type': 'str', 'Value': 'Aalborg'} - This triple indicates that the entity mentioned in the prompt is located in the administrative territorial entity of\"\n        }\n    ],\n    \"created\": 1701262560,\n    \"id\": \"cmpl-9a71621a-bb9b-45d1-9587-a5046993635c\",\n    \"model\": \"Llama2.gguf\",\n    \"object\": \"text_completion\",\n    \"usage\": {\n        \"completion_tokens\": 188,\n        \"prompt_tokens\": 324,\n        \"total_tokens\": 512\n    }\n}"
+				},
+				{
+					"name": "Llama fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er Michael Jackson, Barrack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2201"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Nov 2023 13:21:04 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Knowledge Graph output\": {\n        \"triples\": [\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"male\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"sex or gender\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Michael Jackson\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"recording artist\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"occupation\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Michael Jackson\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Gary\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"place of birth\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Michael Jackson\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Epic Records\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"record label\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Michael Jackson\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Universal Music Group\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"record label\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Michael Jackson\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"NAACP Image Award – Chairman's Award\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"award received\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Barack Obama\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Primetime Emmy Award for Outstanding Narrator\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"award received\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Barack Obama\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"honorary doctorate from the University of Notre Dame\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"award received\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Barack Obama\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"honorary doctor of the Northwestern University\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"award received\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Barack Obama\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"honorary doctor of the University of Johannesburg\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"award received\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Barack Obama\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Jamaica Hospital Medical Center\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"place of birth\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Donald Trump\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"right-handedness\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"handedness\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Donald Trump\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Mary Anne MacLeod Trump\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"mother\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Donald Trump\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"golf\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"sport\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Donald Trump\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"male\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"sex or gender\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Donald Trump\"\n                }\n            }\n        ]\n    },\n    \"Llama error\": \"Llama function failed\"\n}"
+				},
+				{
+					"name": "RunKR",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvor ligger Aalborg?\",\r\n    \"run_llama\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "601"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Dec 2023 15:06:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "  Based on the given triples, we can answer the question \"Hvor lider Aalborg?\" (Where is Aalborg located?) as follows:\n* The triple {\"o\": Thomas Kastrup-Larsen, \"p\": head of government, \"s\": Aalborg} indicates that Aalborg is the location of Thomas Kastrup-Larsen, who is the head of government.\n* The triple {\"o\": Denmark, \"p\": country, \"s\": Aalborg} indicates that Aalborg is located in Denmark.\nTherefore, we can conclude that Aalborg is located in Aalborg, which is a big city located in the administrative territorial entity of Aalborg Municipality, and it is situated in the time zone UTC+02:00."
+				}
+			]
+		},
+		{
+			"name": "CallSpaCy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input_string\": \"hvor er Obama født?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5003/extract_entities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"extract_entities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CallSpaCy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er Obama?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/extract_entities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"extract_entities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "10"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Nov 2023 10:57:17 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Obama\"\n]"
+				}
+			]
+		},
+		{
+			"name": "CallApiModule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"keywords\": [\"Aalborg\", \"Berlin\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5002/get_triples",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5002",
+					"path": [
+						"get_triples"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Wikidata:Aalborg&Berlin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"keywords\": [\"Aalborg\", \"Berlin\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/GetTriples",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"GetTriples"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.9.6"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Nov 2023 09:22:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "5566"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"triples\": [\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Thomas Kastrup-Larsen\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"head of government\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Denmark\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"country\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"big city\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"instance of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg Municipality\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"located in the administrative territorial entity\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"UTC+01:00\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"located in time zone\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"UTC+02:00\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"located in time zone\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Category:Aalborg\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"topic's main category\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Vilnius\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"twinned administrative body\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Nuuk\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"twinned administrative body\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Brockhaus and Efron Encyclopedic Dictionary\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"described by source\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            }\n        ]\n    },\n    {\n        \"triples\": [\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"World Tourism Cities Federation\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"member of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Germany\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"country\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Kai Wegner\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"head of government\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"C40 Cities Climate Leadership Group\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"member of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Mayors for Peace\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"member of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Creative Cities Network\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"member of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"IT-Planungsrat\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"member of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Climate Alliance\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"member of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Istanbul\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"twinned administrative body\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"City of Brussels\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"twinned administrative body\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Berlin\"\n                }\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Llama call",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"system_message\": \"You are a helpful assistant\",\n    \"user_message\": \"Generate a list of 5 funny dog names\",\n    \"max_tokens\": 100\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5004/llama",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"llama"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Llama call",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"system_message\": \"You are a helpful assistant\",\n\"user_message\": \"Generate a list of 5 funny dog names\",\n\"max_tokens\": 100}"
+						},
+						"url": {
+							"raw": "http://localhost:5004/llama",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"llama"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Nov 2023 11:16:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "847"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"length\",\n            \"index\": 0,\n            \"logprobs\": null,\n            \"text\": \"<s>[INST] <<SYS>>\\n            You are a helpful assistant\\n            <</SYS>>\\n            Generate a list of 5 funny dog names [/INST]  Of course! Here are five funny dog names that might bring a smile to your face:\\n\\n1. Barky McSnufferson - This name is perfect for a playful and energetic pup who loves to bark and wag his tail whenever he sees something exciting.\\n2. Puddles McFurrypaws - This name is great for a fluffy dog with a penchant for getting into wet, muddy situations\"\n        }\n    ],\n    \"created\": 1701256601,\n    \"id\": \"cmpl-ae1bfcc0-3a42-4784-a766-da17b6a30c0d\",\n    \"model\": \"Llama2.gguf\",\n    \"object\": \"text_completion\",\n    \"usage\": {\n        \"completion_tokens\": 100,\n        \"prompt_tokens\": 40,\n        \"total_tokens\": 140\n    }\n}"
+				}
+			]
+		}
+	]
+}

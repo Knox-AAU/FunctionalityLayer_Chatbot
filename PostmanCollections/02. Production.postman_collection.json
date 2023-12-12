@@ -1,0 +1,647 @@
+{
+	"info": {
+		"_postman_id": "46dfc655-4e5f-4a68-9d9b-38bd0c80731a",
+		"name": "02. Production",
+		"description": "Must be connected via ssh for call to work:\n\nssh [studentId@student.aau.dk](https://mailto:tian21@student.aau.dk)@knox-func01.srv.aau.dk -L 8000:localhost:5001",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31034073",
+		"_collection_link": "https://knoxchatbot.postman.co/workspace/KnoxChatbot~afdc4487-9fbe-4a2d-804b-f382733daf7d/collection/31034073-46dfc655-4e5f-4a68-9d9b-38bd0c80731a?action=share&source=collection_link&creator=31034073"
+	},
+	"item": [
+		{
+			"name": "CallKRProd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input_string\": \"Hvem er borgmester i Aalborg\",\r\n    \"run_llama\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/knowledge_retriever",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"knowledge_retriever"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er Obama og Trump?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "18"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 09:34:12 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Obama\",\n    \"Trump\"\n]"
+				},
+				{
+					"name": "CallKRProdInclWikidataAPI",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er Obama og Trump?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "399"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Nov 2023 14:08:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Wikimedia disambiguation page\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"instance of\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Trump\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Category:Trump\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"topic's main category\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Trump\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Trump\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"different from\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Trump\"\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "BorgmesterIAalborgKG",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er borgmester i Aalborg\",\r\n    \"run_llama\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "763"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Dec 2023 09:49:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Knowledge Graph output\": {\n        \"triples\": [\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Thomas Kastrup-Larsen\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"head of government\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg Municipality\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"located in the administrative territorial entity\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Denmark\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"country\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"big city\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"instance of\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            },\n            {\n                \"o\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"UTC+01:00\"\n                },\n                \"p\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"located in time zone\"\n                },\n                \"s\": {\n                    \"Type\": \"str\",\n                    \"Value\": \"Aalborg\"\n                }\n            }\n        ]\n    },\n    \"Llama error\": \"Llama function failed or was not executed\"\n}"
+				},
+				{
+					"name": "KRProdWithLlama-BorgmesterIAalborg",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er borgmester i Aalborg\",\r\n    \"run_llama\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/knowledge_retriever",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"knowledge_retriever"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1377"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Dec 2023 10:41:08 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"stop\",\n            \"index\": 0,\n            \"logprobs\": null,\n            \"text\": \"<s>[INST] <<SYS>>\\n            Based on this prompt, give me an answer {'triples': [{'o': {'Type': 'str', 'Value': 'Thomas Kastrup-Larsen'}, 'p': {'Type': 'str', 'Value': 'head of government'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'Denmark'}, 'p': {'Type': 'str', 'Value': 'country'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'big city'}, 'p': {'Type': 'str', 'Value': 'instance of'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'Aalborg Municipality'}, 'p': {'Type': 'str', 'Value': 'located in the administrative territorial entity'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}, {'o': {'Type': 'str', 'Value': 'UTC+02:00'}, 'p': {'Type': 'str', 'Value': 'located in time zone'}, 's': {'Type': 'str', 'Value': 'Aalborg'}}]}\\n            <</SYS>>\\n            Hvem er borgmester i Aalborg [/INST]  Based on the provided triples, we can infer that:\\n* Thomas Kastrup-Larsen is the head of government in Aalborg.\\nTherefore, the answer to the question \\\"Hvem er borgmester i Aalborg\\\" is \\\"Thomas Kastrup-Larsen.\\\"\"\n        }\n    ],\n    \"created\": 1701858313,\n    \"id\": \"cmpl-bbcfd3c1-36e4-448d-9942-82823942c343\",\n    \"model\": \"Llama2.gguf\",\n    \"object\": \"text_completion\",\n    \"usage\": {\n        \"completion_tokens\": 68,\n        \"prompt_tokens\": 322,\n        \"total_tokens\": 390\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "CallSpaCyProd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"input_string\": \"Hvem er borgmester i Aalborg?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://knox-func01.srv.aau.dk:5003/extract_entities",
+					"protocol": "http",
+					"host": [
+						"knox-func01",
+						"srv",
+						"aau",
+						"dk"
+					],
+					"port": "5003",
+					"path": [
+						"extract_entities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CallSpaCy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input_string\": \"Hvem er Obama?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/extract_entities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"extract_entities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "10"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.2 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Nov 2023 10:57:17 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Obama\"\n]"
+				}
+			]
+		},
+		{
+			"name": "CallWikidataProd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keywords\": [\"Aalborg\", \"Berlin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://knox-func01.srv.aau.dk:5002/GetTriples",
+					"protocol": "http",
+					"host": [
+						"knox-func01",
+						"srv",
+						"aau",
+						"dk"
+					],
+					"port": "5002",
+					"path": [
+						"GetTriples"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CallKRProd Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"keywords\": [\"Aalborg\", \"Berlin\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/GetTriples",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"GetTriples"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Dec 2023 13:54:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1328"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Thomas Kastrup-Larsen\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"head of government\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Denmark\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"country\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"big city\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"instance of\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg Municipality\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"located in the administrative territorial entity\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"UTC+01:00\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"located in time zone\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Germany\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"country\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Kai Wegner\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"head of government\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"City of Brussels\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"twinned administrative body\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin-Brandenburg Metropolitan Region\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"part of\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"agglomeration of Berlin\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"part of\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "CallWikidataProd From other server",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keywords\": [\"Aalborg\", \"Berlin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://knox-func01.srv.aau.dk:5002/GetTriples",
+					"protocol": "http",
+					"host": [
+						"knox-func01",
+						"srv",
+						"aau",
+						"dk"
+					],
+					"port": "5002",
+					"path": [
+						"GetTriples"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CallKRProd Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"keywords\": [\"Aalborg\", \"Berlin\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/GetTriples",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"GetTriples"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Dec 2023 13:54:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1328"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"triples\": [\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Thomas Kastrup-Larsen\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"head of government\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Denmark\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"country\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"big city\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"instance of\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg Municipality\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"located in the administrative territorial entity\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"UTC+01:00\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"located in time zone\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Aalborg\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Germany\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"country\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Kai Wegner\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"head of government\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"City of Brussels\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"twinned administrative body\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin-Brandenburg Metropolitan Region\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"part of\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        },\n        {\n            \"o\": {\n                \"Type\": \"str\",\n                \"Value\": \"agglomeration of Berlin\"\n            },\n            \"p\": {\n                \"Type\": \"str\",\n                \"Value\": \"part of\"\n            },\n            \"s\": {\n                \"Type\": \"str\",\n                \"Value\": \"Berlin\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "CallLlamaProd (From other server)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"system_message\": \"You are a helpful assistant\",\n    \"user_message\": \"Generate a list of 5 funny dog names\",\n    \"max_tokens\": 100\n}"
+				},
+				"url": {
+					"raw": "http://knox-func01.srv.aau.dk:5004/llama",
+					"protocol": "http",
+					"host": [
+						"knox-func01",
+						"srv",
+						"aau",
+						"dk"
+					],
+					"port": "5004",
+					"path": [
+						"llama"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Llama call",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"system_message\": \"You are a helpful assistant\",\n\"user_message\": \"Generate a list of 5 funny dog names\",\n\"max_tokens\": 100}"
+						},
+						"url": {
+							"raw": "http://localhost:5004/llama",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"llama"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 Nov 2023 11:16:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "847"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"length\",\n            \"index\": 0,\n            \"logprobs\": null,\n            \"text\": \"<s>[INST] <<SYS>>\\n            You are a helpful assistant\\n            <</SYS>>\\n            Generate a list of 5 funny dog names [/INST]  Of course! Here are five funny dog names that might bring a smile to your face:\\n\\n1. Barky McSnufferson - This name is perfect for a playful and energetic pup who loves to bark and wag his tail whenever he sees something exciting.\\n2. Puddles McFurrypaws - This name is great for a fluffy dog with a penchant for getting into wet, muddy situations\"\n        }\n    ],\n    \"created\": 1701256601,\n    \"id\": \"cmpl-ae1bfcc0-3a42-4784-a766-da17b6a30c0d\",\n    \"model\": \"Llama2.gguf\",\n    \"object\": \"text_completion\",\n    \"usage\": {\n        \"completion_tokens\": 100,\n        \"prompt_tokens\": 40,\n        \"total_tokens\": 140\n    }\n}"
+				},
+				{
+					"name": "Llama call from other server",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"system_message\": \"You are a helpful assistant\",\n    \"user_message\": \"Generate a list of 5 funny dog names\",\n    \"max_tokens\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://knox-func01.srv.aau.dk:5004/llama",
+							"protocol": "http",
+							"host": [
+								"knox-func01",
+								"srv",
+								"aau",
+								"dk"
+							],
+							"port": "5004",
+							"path": [
+								"llama"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.1 Python/3.12.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 06 Dec 2023 11:54:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "822"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"choices\": [\n        {\n            \"finish_reason\": \"length\",\n            \"index\": 0,\n            \"logprobs\": null,\n            \"text\": \"<s>[INST] <<SYS>>\\n            You are a helpful assistant\\n            <</SYS>>\\n            Generate a list of 5 funny dog names [/INST]  Of course! Here are five funny dog names that might bring a smile to your face:\\n\\n1. Sir Paws-A-Lot - This name is perfect for a regal-looking pup with a flair for drama.\\n2. Barky Boo Boo - This silly name is great for a playful, energetic dog who loves to have fun.\\n3. Pupper Nutter - This whimsical name is ideal for a\"\n        }\n    ],\n    \"created\": 1701863347,\n    \"id\": \"cmpl-b5353653-d40b-42cd-9ec0-8055e5b302a4\",\n    \"model\": \"Llama2.gguf\",\n    \"object\": \"text_completion\",\n    \"usage\": {\n        \"completion_tokens\": 100,\n        \"prompt_tokens\": 40,\n        \"total_tokens\": 140\n    }\n}"
+				}
+			]
+		}
+	]
+}
