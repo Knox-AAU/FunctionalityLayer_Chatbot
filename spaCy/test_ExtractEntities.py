@@ -1,11 +1,11 @@
 import pytest
 
-from spaCy import spacyEndpoint
+from spaCy import spacy_endpoint
 
 @pytest.fixture # Create fixture of spaCyEndpoint. It will create an instance of the spaCy flask app and configure it for testing
 def client():
-   spacyEndpoint.config['TESTING'] = True
-   with spacyEndpoint.test_client() as client:
+   spacy_endpoint.config['TESTING'] = True
+   with spacy_endpoint.test_client() as client:
        yield client
 
 # Use this to add more tests
